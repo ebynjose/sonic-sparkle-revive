@@ -1,23 +1,29 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const links = [
-  { label: "Features", href: "#features" },
-  { label: "Accessories", href: "#accessories" },
-  { label: "Industries", href: "#industries" },
-  { label: "Contact", href: "#contact" },
+  { label: "Products", href: "/products" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) return location.pathname === "/";
+    return location.pathname.startsWith(href);
+  };
 
   return (
     <nav
@@ -26,24 +32,38 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-5">
-        <a href="#" className="font-display text-xl font-bold tracking-tight">
+        <Link to="/" className="font-display text-xl font-bold tracking-tight">
           <span className="gradient-text">S</span>ONICHIVE
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-10">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.href.startsWith("/#") ? (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
+                  isActive(l.href) ? "text-foreground" : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.href}
+                to={l.href}
+                className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
+                  isActive(l.href) ? "text-foreground" : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {l.label}
+              </Link>
+            )
+          )}
         </div>
 
         <a
-          href="#contact"
+          href="/#contact"
           className="hidden md:inline-flex text-xs tracking-[0.15em] uppercase text-primary border border-primary/30 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
         >
           Get a Quote
@@ -63,18 +83,29 @@ const Navbar = () => {
             className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
           >
             <div className="container mx-auto flex flex-col gap-6 py-8">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {l.label}
-                </a>
-              ))}
+              {links.map((l) =>
+                l.href.startsWith("/#") ? (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={l.href}
+                    to={l.href}
+                    onClick={() => setOpen(false)}
+                    className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                )
+              )}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 className="text-sm tracking-[0.15em] uppercase text-primary"
               >
