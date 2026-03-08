@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 const links = [
   { label: "Products", href: "/products" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -62,12 +62,12 @@ const Navbar = () => {
           )}
         </div>
 
-        <a
-          href="/#contact"
+        <Link
+          to="/contact"
           className="hidden md:inline-flex text-xs tracking-[0.15em] uppercase text-primary border border-primary/30 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
         >
           Get a Quote
-        </a>
+        </Link>
 
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={20} /> : <Menu size={20} />}
