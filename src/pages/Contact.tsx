@@ -180,143 +180,133 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Details + Form */}
-      <section className="pb-32">
+      {/* HQ Details — full width row */}
+      <section className="pb-20">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-5 gap-12">
-            {/* HQ Details */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-2 space-y-8"
-            >
-              <div>
-                <p className="text-xs tracking-[0.3em] uppercase text-primary font-mono mb-4">Head Office</p>
-                <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight mb-2">
-                  Dubai, UAE
-                </h2>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Our global headquarters — the hub for innovation, strategy, and partnerships.
-                </p>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xs tracking-[0.3em] uppercase text-primary font-mono mb-4">Head Office</p>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight mb-8">
+              Dubai, <span className="text-muted-foreground">UAE</span>
+            </h2>
 
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MapPin size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium mb-0.5">Address</p>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      Office 1205, Al Shafar Tower 1,<br />
-                      Barsha Heights (TECOM),<br />
-                      Dubai, United Arab Emirates
-                    </p>
-                  </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin size={18} className="text-primary" />
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Phone size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium mb-0.5">Phone</p>
-                    <p className="text-xs text-muted-foreground">+971 4 551 4700</p>
-                    <p className="text-xs text-muted-foreground">+971 50 123 4567</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Mail size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium mb-0.5">Email</p>
-                    <p className="text-xs text-muted-foreground">info@sonichive.com</p>
-                    <p className="text-xs text-muted-foreground">sales@sonichive.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Clock size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium mb-0.5">Working Hours</p>
-                    <p className="text-xs text-muted-foreground">Sun – Thu: 9:00 AM – 6:00 PM</p>
-                    <p className="text-xs text-muted-foreground">Fri – Sat: Closed</p>
-                  </div>
+                <div>
+                  <p className="text-sm font-medium mb-1">Address</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Office 1205, Al Shafar Tower 1,<br />
+                    Barsha Heights (TECOM),<br />
+                    Dubai, United Arab Emirates
+                  </p>
                 </div>
               </div>
 
-              {/* Branch list */}
-              <div className="pt-6 border-t border-border">
-                <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-mono mb-4">Other Branches</p>
-                <div className="grid grid-cols-2 gap-3">
-                  {branches.filter(b => !b.isHQ).map((b) => (
-                    <div key={b.name} className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <span className="w-1.5 h-1.5 rounded-full bg-foreground/40" />
-                      <span>{b.city}, {b.name}</span>
-                    </div>
-                  ))}
+              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-1">Phone</p>
+                  <p className="text-xs text-muted-foreground">+971 4 551 4700</p>
+                  <p className="text-xs text-muted-foreground">+971 50 123 4567</p>
                 </div>
               </div>
-            </motion.div>
 
-            {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="lg:col-span-3"
-            >
-              <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-                <h3 className="text-xl font-display font-bold mb-1">Send us a message</h3>
-                <p className="text-xs text-muted-foreground mb-8">
-                  Fill out the form below and our team will respond within 24 hours.
-                </p>
-
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <Input
-                      placeholder="Full Name"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      required
-                      className="bg-background border-border focus:border-primary rounded-lg h-12 text-sm placeholder:text-muted-foreground/60"
-                    />
-                    <Input
-                      type="email"
-                      placeholder="Email Address"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      required
-                      className="bg-background border-border focus:border-primary rounded-lg h-12 text-sm placeholder:text-muted-foreground/60"
-                    />
-                  </div>
-                  <Input
-                    placeholder="Phone Number"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="bg-background border-border focus:border-primary rounded-lg h-12 text-sm placeholder:text-muted-foreground/60"
-                  />
-                  <textarea
-                    placeholder="Your message..."
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    required
-                    rows={5}
-                    className="w-full rounded-lg border border-border bg-background px-3 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30 resize-none"
-                  />
-                  <Button type="submit" size="lg" className="w-full gap-2 mt-2">
-                    Send Message <ArrowRight size={16} />
-                  </Button>
-                </form>
+              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-1">Email</p>
+                  <p className="text-xs text-muted-foreground">info@sonichive.com</p>
+                  <p className="text-xs text-muted-foreground">sales@sonichive.com</p>
+                </div>
               </div>
-            </motion.div>
-          </div>
+
+              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Clock size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-1">Working Hours</p>
+                  <p className="text-xs text-muted-foreground">Sun – Thu: 9:00 AM – 6:00 PM</p>
+                  <p className="text-xs text-muted-foreground">Fri – Sat: Closed</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Branch list inline */}
+            <div className="mt-8 pt-6 border-t border-border flex flex-wrap items-center gap-6">
+              <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-mono">Other Branches:</p>
+              {branches.filter(b => !b.isHQ).map((b) => (
+                <div key={b.name} className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <span className="w-1.5 h-1.5 rounded-full bg-foreground/40" />
+                  <span>{b.city}, {b.name}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Lead Form — full width below */}
+      <section className="pb-32">
+        <div className="container mx-auto max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-border bg-card p-8 sm:p-10"
+          >
+            <h3 className="text-xl font-display font-bold mb-1">Send us a message</h3>
+            <p className="text-xs text-muted-foreground mb-8">
+              Fill out the form below and our team will respond within 24 hours.
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <Input
+                  placeholder="Full Name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  required
+                  className="bg-background border-border focus:border-primary rounded-lg h-12 text-sm placeholder:text-muted-foreground/60"
+                />
+                <Input
+                  type="email"
+                  placeholder="Email Address"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  required
+                  className="bg-background border-border focus:border-primary rounded-lg h-12 text-sm placeholder:text-muted-foreground/60"
+                />
+              </div>
+              <Input
+                placeholder="Phone Number"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="bg-background border-border focus:border-primary rounded-lg h-12 text-sm placeholder:text-muted-foreground/60"
+              />
+              <textarea
+                placeholder="Your message..."
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                required
+                rows={5}
+                className="w-full rounded-lg border border-border bg-background px-3 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30 resize-none"
+              />
+              <Button type="submit" size="lg" className="w-full gap-2 mt-2">
+                Send Message <ArrowRight size={16} />
+              </Button>
+            </form>
+          </motion.div>
         </div>
       </section>
 
