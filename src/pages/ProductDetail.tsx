@@ -92,9 +92,9 @@ const ProductDetail = () => {
               </div>
 
               <Button size="lg" className="gap-2" asChild>
-                <a href="/#contact">
+                <Link to="/contact">
                   Get a Quote <ArrowRight size={16} />
-                </a>
+                </Link>
               </Button>
             </motion.div>
           </div>
