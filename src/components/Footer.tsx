@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="py-10 border-t border-border">
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center">
-          <img src="/logo-sonichive.svg" alt="SonicHive Logo" className="h-6" />
+          <img src="/logo-sonichive.webp" alt="SonicHive Logo" className="h-6" />
         </div>
         <p className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-mono">
           © {new Date().getFullYear()} SonicHive. All rights reserved.
