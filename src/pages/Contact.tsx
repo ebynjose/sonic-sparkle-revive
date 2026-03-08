@@ -155,7 +155,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      </section>
 
       {/* HQ Details — full width row */}
       <section className="pb-20">
