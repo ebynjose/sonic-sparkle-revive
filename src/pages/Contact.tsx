@@ -8,12 +8,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const branches = [
-  { name: "UAE", city: "Dubai", role: "Head Office", x: 57.5, y: 42, isHQ: true },
-  { name: "Qatar", city: "Doha", x: 56, y: 43.5, isHQ: false },
-  { name: "Saudi Arabia", city: "Riyadh", x: 53, y: 43, isHQ: false },
-  { name: "Bahrain", city: "Manama", x: 55.5, y: 41.5, isHQ: false },
-  { name: "China", city: "Shenzhen", x: 76, y: 39, isHQ: false },
-  { name: "India", city: "Mumbai", x: 67, y: 46, isHQ: false },
+  { name: "UAE", city: "Dubai", role: "Head Office", x: 553, y: 215, isHQ: true },
+  { name: "Qatar", city: "Doha", x: 545, y: 222, isHQ: false },
+  { name: "Saudi Arabia", city: "Riyadh", x: 520, y: 218, isHQ: false },
+  { name: "Bahrain", city: "Manama", x: 540, y: 210, isHQ: false },
+  { name: "China", city: "Shenzhen", x: 735, y: 195, isHQ: false },
+  { name: "India", city: "Mumbai", x: 640, y: 230, isHQ: false },
 ];
 
 const Contact = () => {
@@ -59,81 +59,58 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="pb-24">
+      {/* Compact Map Section */}
+      <section className="pb-20">
         <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl border border-border bg-card overflow-hidden p-6 sm:p-10"
+            className="relative rounded-2xl border border-border bg-card overflow-hidden p-4 sm:p-6"
           >
-            {/* Stylized SVG Map */}
-            <svg
-              viewBox="0 0 100 70"
-              className="w-full h-auto"
-              style={{ minHeight: 300 }}
-            >
-              {/* Grid lines */}
-              {Array.from({ length: 11 }).map((_, i) => (
-                <line
-                  key={`h-${i}`}
-                  x1="0" y1={i * 7} x2="100" y2={i * 7}
-                  stroke="hsl(var(--border))" strokeWidth="0.1" opacity="0.5"
-                />
-              ))}
-              {Array.from({ length: 11 }).map((_, i) => (
-                <line
-                  key={`v-${i}`}
-                  x1={i * 10} y1="0" x2={i * 10} y2="70"
-                  stroke="hsl(var(--border))" strokeWidth="0.1" opacity="0.5"
-                />
-              ))}
+            <svg viewBox="0 0 900 400" className="w-full h-auto" style={{ maxHeight: 320 }}>
+              {/* World map simplified paths */}
+              <g fill="hsl(var(--muted))" opacity="0.25" stroke="hsl(var(--border))" strokeWidth="0.5">
+                {/* North America */}
+                <path d="M60,80 L120,55 L180,50 L220,60 L240,80 L230,120 L220,150 L200,170 L170,180 L150,175 L130,160 L100,170 L80,160 L60,130 L50,100 Z" />
+                {/* Central America */}
+                <path d="M150,175 L170,180 L175,200 L165,215 L155,210 L150,195 Z" />
+                {/* South America */}
+                <path d="M165,215 L200,210 L230,230 L240,270 L235,310 L220,350 L200,370 L180,360 L170,320 L160,280 L155,240 Z" />
+                {/* Europe */}
+                <path d="M380,55 L420,50 L460,55 L480,70 L490,90 L480,110 L460,120 L440,115 L420,105 L400,100 L385,90 L375,75 Z" />
+                {/* Africa */}
+                <path d="M400,150 L440,140 L480,150 L510,180 L520,220 L515,270 L500,310 L480,340 L450,350 L420,330 L400,290 L390,240 L385,190 Z" />
+                {/* Middle East */}
+                <path d="M480,120 L520,110 L560,120 L570,150 L565,180 L550,200 L530,210 L510,200 L490,180 L480,150 Z" />
+                {/* India */}
+                <path d="M600,140 L640,130 L670,150 L670,190 L660,230 L640,260 L620,250 L610,220 L600,180 Z" />
+                {/* Russia/Central Asia */}
+                <path d="M460,55 L520,40 L600,30 L680,35 L740,45 L780,55 L760,80 L720,90 L670,85 L620,80 L570,75 L520,70 L490,65 Z" />
+                {/* China/East Asia */}
+                <path d="M680,80 L740,75 L780,90 L790,120 L780,160 L760,180 L730,190 L700,185 L680,165 L670,130 L670,100 Z" />
+                {/* Southeast Asia */}
+                <path d="M700,190 L730,195 L750,210 L740,240 L720,250 L700,240 L690,220 Z" />
+                {/* Australia */}
+                <path d="M730,300 L780,285 L830,290 L850,310 L840,340 L810,355 L770,350 L740,335 L730,315 Z" />
+                {/* Greenland */}
+                <path d="M260,20 L300,15 L330,25 L325,50 L300,55 L275,45 Z" />
+                {/* UK/Ireland */}
+                <path d="M370,60 L385,55 L390,70 L380,80 L370,75 Z" />
+                {/* Japan */}
+                <path d="M790,110 L800,100 L810,110 L805,130 L795,135 Z" />
+              </g>
 
-              {/* Simplified continent outlines — Middle East & Asia region */}
-              {/* Arabian Peninsula */}
-              <path
-                d="M48,36 L50,34 L54,33 L58,34 L60,36 L59,40 L58,44 L56,47 L54,48 L52,47 L50,46 L48,44 L47,40 Z"
-                fill="hsl(var(--muted))"
-                opacity="0.3"
-                stroke="hsl(var(--border))"
-                strokeWidth="0.15"
-              />
-              {/* India subcontinent */}
-              <path
-                d="M63,32 L68,30 L72,32 L72,38 L70,44 L68,50 L66,52 L64,48 L63,42 L62,36 Z"
-                fill="hsl(var(--muted))"
-                opacity="0.3"
-                stroke="hsl(var(--border))"
-                strokeWidth="0.15"
-              />
-              {/* China / East Asia */}
-              <path
-                d="M70,22 L78,20 L84,22 L86,28 L84,34 L80,38 L76,40 L72,38 L70,32 Z"
-                fill="hsl(var(--muted))"
-                opacity="0.3"
-                stroke="hsl(var(--border))"
-                strokeWidth="0.15"
-              />
-              {/* Africa east coast hint */}
-              <path
-                d="M44,38 L48,36 L47,40 L48,44 L46,50 L44,54 L42,50 L42,44 Z"
-                fill="hsl(var(--muted))"
-                opacity="0.2"
-                stroke="hsl(var(--border))"
-                strokeWidth="0.15"
-              />
-
-              {/* Connection lines between branches */}
+              {/* Connection lines from HQ to branches */}
               {branches.filter(b => !b.isHQ).map((b) => (
                 <line
                   key={`line-${b.name}`}
                   x1={branches[0].x} y1={branches[0].y}
                   x2={b.x} y2={b.y}
                   stroke="hsl(var(--primary))"
-                  strokeWidth="0.12"
-                  opacity="0.3"
-                  strokeDasharray="0.5 0.5"
+                  strokeWidth="0.6"
+                  opacity="0.25"
+                  strokeDasharray="4 3"
                 />
               ))}
 
@@ -145,83 +122,59 @@ const Contact = () => {
                   onMouseLeave={() => setHoveredBranch(null)}
                   className="cursor-pointer"
                 >
-                  {/* Pulse ring for HQ */}
                   {b.isHQ && (
                     <>
-                      <circle cx={b.x} cy={b.y} r="2.5" fill="hsl(var(--primary))" opacity="0.08">
-                        <animate attributeName="r" values="2;4;2" dur="3s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0.15;0;0.15" dur="3s" repeatCount="indefinite" />
-                      </circle>
-                      <circle cx={b.x} cy={b.y} r="1.8" fill="hsl(var(--primary))" opacity="0.12">
-                        <animate attributeName="r" values="1.8;3;1.8" dur="3s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0.2;0;0.2" dur="3s" repeatCount="indefinite" />
+                      <circle cx={b.x} cy={b.y} r="12" fill="hsl(var(--primary))" opacity="0.06">
+                        <animate attributeName="r" values="12;20;12" dur="3s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" values="0.1;0;0.1" dur="3s" repeatCount="indefinite" />
                       </circle>
                     </>
                   )}
-
-                  {/* Dot */}
                   <circle
                     cx={b.x} cy={b.y}
-                    r={b.isHQ ? 1.2 : 0.7}
+                    r={b.isHQ ? 5 : 3.5}
                     fill={b.isHQ ? "hsl(var(--primary))" : "hsl(var(--foreground))"}
-                    opacity={hoveredBranch === b.name || b.isHQ ? 1 : 0.6}
+                    opacity={hoveredBranch === b.name || b.isHQ ? 1 : 0.5}
                   />
-
-                  {/* Label */}
                   <text
                     x={b.x}
-                    y={b.y - (b.isHQ ? 2.8 : 1.8)}
+                    y={b.y - (b.isHQ ? 12 : 8)}
                     textAnchor="middle"
                     fill={b.isHQ ? "hsl(var(--primary))" : "hsl(var(--foreground))"}
-                    fontSize={b.isHQ ? "1.6" : "1.2"}
+                    fontSize={b.isHQ ? "10" : "8"}
                     fontFamily="Space Mono, monospace"
-                    opacity={hoveredBranch === b.name || b.isHQ ? 1 : 0.5}
+                    opacity={hoveredBranch === b.name || b.isHQ ? 1 : 0.4}
                     fontWeight={b.isHQ ? "bold" : "normal"}
                   >
-                    {b.isHQ ? "⬤ " : ""}{b.city}
+                    {b.city}
                   </text>
                   {b.isHQ && (
                     <text
-                      x={b.x}
-                      y={b.y + 3}
+                      x={b.x} y={b.y + 15}
                       textAnchor="middle"
                       fill="hsl(var(--primary))"
-                      fontSize="1"
+                      fontSize="6"
                       fontFamily="Space Mono, monospace"
-                      letterSpacing="0.15"
+                      letterSpacing="2"
                     >
-                      HEAD OFFICE
-                    </text>
-                  )}
-                  {hoveredBranch === b.name && !b.isHQ && (
-                    <text
-                      x={b.x}
-                      y={b.y + 2.2}
-                      textAnchor="middle"
-                      fill="hsl(var(--muted-foreground))"
-                      fontSize="0.9"
-                      fontFamily="Space Mono, monospace"
-                    >
-                      {b.name}
+                      HQ
                     </text>
                   )}
                 </g>
               ))}
             </svg>
 
-            {/* Legend */}
-            <div className="flex flex-wrap gap-6 mt-6 pt-6 border-t border-border">
+            {/* Inline legend */}
+            <div className="flex flex-wrap items-center gap-5 mt-2 pt-3 border-t border-border">
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-primary" />
-                <span className="text-xs font-mono text-muted-foreground tracking-wider uppercase">Head Office</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                <span className="text-[10px] font-mono text-muted-foreground tracking-wider uppercase">Head Office</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-foreground opacity-60" />
-                <span className="text-xs font-mono text-muted-foreground tracking-wider uppercase">Branch Office</span>
+                <span className="w-2 h-2 rounded-full bg-foreground opacity-50" />
+                <span className="text-[10px] font-mono text-muted-foreground tracking-wider uppercase">Branch</span>
               </div>
-              <span className="text-xs font-mono text-muted-foreground/50 ml-auto">
-                6 locations worldwide
-              </span>
+              <span className="text-[10px] font-mono text-muted-foreground/40 ml-auto">6 locations</span>
             </div>
           </motion.div>
         </div>
