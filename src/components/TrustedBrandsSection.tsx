@@ -40,8 +40,7 @@ const TrustedBrandsSection = () => {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="h-8 sm:h-10 w-auto opacity-30 hover:opacity-60 transition-opacity duration-500"
-                style={{ filter: "grayscale(1) brightness(0) invert(0.6)" }}
+                className="h-10 sm:h-12 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
               />
             </div>
           ))}
