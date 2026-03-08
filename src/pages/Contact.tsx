@@ -59,125 +59,102 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Compact Map Section */}
+      {/* Global Presence Section */}
       <section className="pb-20">
         <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-2xl border border-border bg-card overflow-hidden p-4 sm:p-6"
-          >
-            <svg viewBox="0 0 900 400" className="w-full h-auto" style={{ maxHeight: 320 }}>
-              {/* World map simplified paths */}
-              <g fill="hsl(var(--muted))" opacity="0.25" stroke="hsl(var(--border))" strokeWidth="0.5">
-                {/* North America */}
-                <path d="M60,80 L120,55 L180,50 L220,60 L240,80 L230,120 L220,150 L200,170 L170,180 L150,175 L130,160 L100,170 L80,160 L60,130 L50,100 Z" />
-                {/* Central America */}
-                <path d="M150,175 L170,180 L175,200 L165,215 L155,210 L150,195 Z" />
-                {/* South America */}
-                <path d="M165,215 L200,210 L230,230 L240,270 L235,310 L220,350 L200,370 L180,360 L170,320 L160,280 L155,240 Z" />
-                {/* Europe */}
-                <path d="M380,55 L420,50 L460,55 L480,70 L490,90 L480,110 L460,120 L440,115 L420,105 L400,100 L385,90 L375,75 Z" />
-                {/* Africa */}
-                <path d="M400,150 L440,140 L480,150 L510,180 L520,220 L515,270 L500,310 L480,340 L450,350 L420,330 L400,290 L390,240 L385,190 Z" />
-                {/* Middle East */}
-                <path d="M480,120 L520,110 L560,120 L570,150 L565,180 L550,200 L530,210 L510,200 L490,180 L480,150 Z" />
-                {/* India */}
-                <path d="M600,140 L640,130 L670,150 L670,190 L660,230 L640,260 L620,250 L610,220 L600,180 Z" />
-                {/* Russia/Central Asia */}
-                <path d="M460,55 L520,40 L600,30 L680,35 L740,45 L780,55 L760,80 L720,90 L670,85 L620,80 L570,75 L520,70 L490,65 Z" />
-                {/* China/East Asia */}
-                <path d="M680,80 L740,75 L780,90 L790,120 L780,160 L760,180 L730,190 L700,185 L680,165 L670,130 L670,100 Z" />
-                {/* Southeast Asia */}
-                <path d="M700,190 L730,195 L750,210 L740,240 L720,250 L700,240 L690,220 Z" />
-                {/* Australia */}
-                <path d="M730,300 L780,285 L830,290 L850,310 L840,340 L810,355 L770,350 L740,335 L730,315 Z" />
-                {/* Greenland */}
-                <path d="M260,20 L300,15 L330,25 L325,50 L300,55 L275,45 Z" />
-                {/* UK/Ireland */}
-                <path d="M370,60 L385,55 L390,70 L380,80 L370,75 Z" />
-                {/* Japan */}
-                <path d="M790,110 L800,100 L810,110 L805,130 L795,135 Z" />
-              </g>
+          <div className="grid lg:grid-cols-3 gap-5">
+            {/* HQ card — large */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:row-span-2 relative rounded-2xl border border-primary/20 bg-card overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent" />
+              <div className="relative p-7 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-primary font-mono font-bold">Head Office</span>
+                </div>
+                <h3 className="text-3xl font-display font-bold mb-1">Dubai</h3>
+                <p className="text-sm text-muted-foreground mb-6">United Arab Emirates</p>
+                
+                <div className="mt-auto space-y-4">
+                  <div className="flex items-center gap-3">
+                    <MapPin size={14} className="text-primary flex-shrink-0" />
+                    <p className="text-xs text-muted-foreground">Al Shafar Tower 1, Barsha Heights</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone size={14} className="text-primary flex-shrink-0" />
+                    <p className="text-xs text-muted-foreground">+971 4 551 4700</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mail size={14} className="text-primary flex-shrink-0" />
+                    <p className="text-xs text-muted-foreground">info@sonichive.com</p>
+                  </div>
+                </div>
 
-              {/* Connection lines from HQ to branches */}
-              {branches.filter(b => !b.isHQ).map((b) => (
-                <line
-                  key={`line-${b.name}`}
-                  x1={branches[0].x} y1={branches[0].y}
-                  x2={b.x} y2={b.y}
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="0.6"
-                  opacity="0.25"
-                  strokeDasharray="4 3"
-                />
-              ))}
+                {/* Decorative large number */}
+                <span className="absolute bottom-4 right-6 text-[7rem] font-display font-extrabold text-foreground/[0.03] leading-none select-none">
+                  HQ
+                </span>
+              </div>
+            </motion.div>
 
-              {/* Branch markers */}
-              {branches.map((b) => (
-                <g
-                  key={b.name}
-                  onMouseEnter={() => setHoveredBranch(b.name)}
-                  onMouseLeave={() => setHoveredBranch(null)}
-                  className="cursor-pointer"
-                >
-                  {b.isHQ && (
-                    <>
-                      <circle cx={b.x} cy={b.y} r="12" fill="hsl(var(--primary))" opacity="0.06">
-                        <animate attributeName="r" values="12;20;12" dur="3s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0.1;0;0.1" dur="3s" repeatCount="indefinite" />
-                      </circle>
-                    </>
-                  )}
-                  <circle
-                    cx={b.x} cy={b.y}
-                    r={b.isHQ ? 5 : 3.5}
-                    fill={b.isHQ ? "hsl(var(--primary))" : "hsl(var(--foreground))"}
-                    opacity={hoveredBranch === b.name || b.isHQ ? 1 : 0.5}
+            {/* Branch cards */}
+            {branches.filter(b => !b.isHQ).map((b, i) => (
+              <motion.div
+                key={b.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.05 * (i + 1) }}
+                onMouseEnter={() => setHoveredBranch(b.name)}
+                onMouseLeave={() => setHoveredBranch(null)}
+                className="relative rounded-2xl border border-border bg-card hover:border-primary/20 transition-all duration-500 overflow-hidden group cursor-default"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative p-6 flex items-center gap-5">
+                  {/* Numeric badge */}
+                  <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                    <span className="text-sm font-mono text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-display font-bold text-base mb-0.5">{b.city}</h4>
+                    <p className="text-xs text-muted-foreground">{b.name}</p>
+                  </div>
+                  {/* Dot indicator */}
+                  <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${hoveredBranch === b.name ? "bg-primary" : "bg-muted-foreground/30"}`} />
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Summary card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              className="rounded-2xl border border-border bg-gradient-to-br from-muted/50 to-card p-6 flex items-center justify-between"
+            >
+              <div>
+                <p className="text-3xl font-display font-bold">6</p>
+                <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono mt-1">Global Offices</p>
+              </div>
+              <div className="flex -space-x-1">
+                {[...Array(6)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-3 h-3 rounded-full border-2 border-card ${i === 0 ? "bg-primary" : "bg-muted-foreground/30"}`}
                   />
-                  <text
-                    x={b.x}
-                    y={b.y - (b.isHQ ? 12 : 8)}
-                    textAnchor="middle"
-                    fill={b.isHQ ? "hsl(var(--primary))" : "hsl(var(--foreground))"}
-                    fontSize={b.isHQ ? "10" : "8"}
-                    fontFamily="Space Mono, monospace"
-                    opacity={hoveredBranch === b.name || b.isHQ ? 1 : 0.4}
-                    fontWeight={b.isHQ ? "bold" : "normal"}
-                  >
-                    {b.city}
-                  </text>
-                  {b.isHQ && (
-                    <text
-                      x={b.x} y={b.y + 15}
-                      textAnchor="middle"
-                      fill="hsl(var(--primary))"
-                      fontSize="6"
-                      fontFamily="Space Mono, monospace"
-                      letterSpacing="2"
-                    >
-                      HQ
-                    </text>
-                  )}
-                </g>
-              ))}
-            </svg>
-
-            {/* Inline legend */}
-            <div className="flex flex-wrap items-center gap-5 mt-2 pt-3 border-t border-border">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                <span className="text-[10px] font-mono text-muted-foreground tracking-wider uppercase">Head Office</span>
+                ))}
               </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-foreground opacity-50" />
-                <span className="text-[10px] font-mono text-muted-foreground tracking-wider uppercase">Branch</span>
-              </div>
-              <span className="text-[10px] font-mono text-muted-foreground/40 ml-auto">6 locations</span>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
+      </section>
       </section>
 
       {/* HQ Details — full width row */}
