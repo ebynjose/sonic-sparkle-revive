@@ -2,9 +2,9 @@ const Footer = () => {
   return (
     <footer className="py-10 border-t border-border">
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="font-display text-sm font-bold tracking-tight">
-          <span className="gradient-text">S</span>ONICHIVE
-        </span>
+        <div className="flex items-center">
+          <img src="/logo-sonichive.svg" alt="SonicHive Logo" className="h-6" />
+        </div>
         <p className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-mono">
           © {new Date().getFullYear()} SonicHive. All rights reserved.
         </p>
