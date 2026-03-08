@@ -1,17 +1,20 @@
 const Footer = () => {
   return (
-    <footer className="py-8 border-t border-border">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="font-display text-lg font-bold">
-          <span className="gradient-text">SONIC</span>
-          <span className="text-foreground">HIVE</span>
-        </div>
-        <p className="text-xs text-muted-foreground">
+    <footer className="py-10 border-t border-border">
+      <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span className="font-display text-sm font-bold tracking-tight">
+          <span className="gradient-text">S</span>ONICHIVE
+        </span>
+        <p className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-mono">
           © {new Date().getFullYear()} SonicHive. All rights reserved.
         </p>
-        <div className="flex gap-6 text-sm text-muted-foreground">
-          <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-          <a href="#" className="hover:text-primary transition-colors">Terms</a>
+        <div className="flex gap-6">
+          <a href="#" className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors font-mono">
+            Privacy
+          </a>
+          <a href="#" className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors font-mono">
+            Terms
+          </a>
         </div>
       </div>
     </footer>
