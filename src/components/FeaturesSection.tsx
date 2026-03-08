@@ -1,76 +1,130 @@
 import { motion } from "framer-motion";
-import iconTouch from "@/assets/icon-touch.png";
-import icon4k from "@/assets/icon-4k.png";
-import iconWireless from "@/assets/icon-wireless.png";
-import iconAudio from "@/assets/icon-audio.png";
-import iconAi from "@/assets/icon-ai.png";
+import { Monitor, Fingerprint, Wifi, Mic, BrainCircuit } from "lucide-react";
+import { useState } from "react";
 
 const features = [
   {
-    icon: iconTouch,
-    title: "Touch, Write & Control",
-    description: "Multi-touch technology lets multiple users write, draw, and interact simultaneously with zero lag.",
+    icon: Fingerprint,
+    title: "Multi-Touch",
+    subtitle: "Touch, Write & Control — All at Once",
+    description:
+      "20-point touch lets multiple users write, draw, and interact simultaneously. Zero lag. Infinite possibilities.",
   },
   {
-    icon: icon4k,
-    title: "4K Ultra HD Display",
-    description: "Stunning 4K UHD resolution delivers crisp, vivid visuals for every presentation and lesson.",
+    icon: Monitor,
+    title: "4K Ultra HD",
+    subtitle: "See the Difference in Every Pixel",
+    description:
+      "Crystal-clear 4K resolution delivers stunning visuals that make every presentation immersive and lifelike.",
   },
   {
-    icon: iconWireless,
-    title: "Wireless Connectivity",
-    description: "Connect via Wi-Fi, Bluetooth, or screen mirroring — no cables, instant collaboration.",
+    icon: Wifi,
+    title: "Wireless",
+    subtitle: "No Cables. No Limits.",
+    description:
+      "Connect any device via Wi-Fi, Bluetooth, or screen mirroring. Instant collaboration, zero clutter.",
   },
   {
-    icon: iconAudio,
-    title: "Built-in Audio & Webcam",
-    description: "Powerful speakers and integrated webcam for flawless hybrid meetings and remote collaboration.",
+    icon: Mic,
+    title: "Audio & Webcam",
+    subtitle: "Hybrid Meetings, Perfected",
+    description:
+      "Built-in speakers and HD webcam turn remote calls into face-to-face experiences.",
   },
   {
-    icon: iconAi,
-    title: "AI-Powered Intelligence",
-    description: "Gesture control, real-time annotations, and one-touch access to apps — smart tech made simple.",
+    icon: BrainCircuit,
+    title: "AI-Powered",
+    subtitle: "Smart, Fast & Intuitive",
+    description:
+      "AI gesture control, real-time annotations, and one-touch app access. Intelligence built in.",
   },
 ];
 
 const FeaturesSection = () => {
+  const [active, setActive] = useState(0);
+
   return (
-    <section id="features" className="py-24 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      
-      <div className="container mx-auto px-6">
-        <motion.div
+    <section id="features" className="py-32">
+      <div className="container mx-auto">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-xs tracking-[0.3em] uppercase text-primary font-mono mb-4"
+        >
+          Features
+        </motion.p>
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-4xl sm:text-5xl font-display font-bold tracking-tight mb-20"
         >
-          <span className="text-primary text-sm font-medium tracking-widest uppercase">Features</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">
-            Built for <span className="gradient-text">Performance</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Every feature is designed to deliver results — from crystal-clear visuals to seamless collaboration.
-          </p>
-        </motion.div>
+          Engineered for
+          <br />
+          <span className="text-muted-foreground">results.</span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group p-6 rounded-2xl glass border-glow hover:bg-secondary/50 transition-all duration-500"
-            >
-              <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <img src={feature.icon} alt={feature.title} className="w-10 h-10" />
+        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
+          {/* Left: feature list */}
+          <div className="space-y-0">
+            {features.map((f, i) => (
+              <motion.button
+                key={f.title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                onClick={() => setActive(i)}
+                className={`w-full text-left py-5 border-b border-border transition-all duration-300 group flex items-center gap-4 ${
+                  active === i ? "opacity-100" : "opacity-40 hover:opacity-70"
+                }`}
+              >
+                <f.icon
+                  size={20}
+                  className={`transition-colors duration-300 ${
+                    active === i ? "text-primary" : "text-muted-foreground"
+                  }`}
+                />
+                <span className="text-lg font-display font-semibold">{f.title}</span>
+                <span className="ml-auto text-xs font-mono text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Right: active feature detail */}
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="lg:sticky lg:top-32"
+          >
+            <div className="p-8 sm:p-12 rounded-2xl bg-card border border-border glow">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                {(() => {
+                  const Icon = features[active].icon;
+                  return <Icon size={22} className="text-primary" />;
+                })()}
               </div>
-              <h3 className="text-lg font-semibold mb-2 font-display">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-            </motion.div>
-          ))}
+              <h3 className="text-2xl sm:text-3xl font-display font-bold mb-3">
+                {features[active].subtitle}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed text-base">
+                {features[active].description}
+              </p>
+              <div className="mt-8 pt-6 border-t border-border">
+                <a
+                  href="#contact"
+                  className="text-xs tracking-[0.2em] uppercase text-primary font-mono hover:underline underline-offset-4"
+                >
+                  Enquire Now →
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

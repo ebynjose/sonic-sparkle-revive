@@ -1,66 +1,85 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-const navLinks = [
+const links = [
   { label: "Features", href: "#features" },
   { label: "Accessories", href: "#accessories" },
-  { label: "Use Cases", href: "#usecases" },
+  { label: "Industries", href: "#industries" },
   { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <a href="#" className="font-display text-2xl font-bold tracking-tight">
-          <span className="gradient-text">SONIC</span>
-          <span className="text-foreground">HIVE</span>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto flex items-center justify-between py-5">
+        <a href="#" className="font-display text-xl font-bold tracking-tight">
+          <span className="gradient-text">S</span>ONICHIVE
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+        <div className="hidden md:flex items-center gap-10">
+          {links.map((l) => (
             <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+              key={l.href}
+              href={l.href}
+              className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
             >
-              {link.label}
+              {l.label}
             </a>
           ))}
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 box-glow">
-            Get a Quote
-          </Button>
         </div>
 
+        <a
+          href="#contact"
+          className="hidden md:inline-flex text-xs tracking-[0.15em] uppercase text-primary border border-primary/30 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+        >
+          Get a Quote
+        </a>
+
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-border"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
           >
-            <div className="flex flex-col gap-4 p-6">
-              {navLinks.map((link) => (
+            <div className="container mx-auto flex flex-col gap-6 py-8">
+              {links.map((l) => (
                 <a
-                  key={link.href}
-                  href={link.href}
+                  key={l.href}
+                  href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {link.label}
+                  {l.label}
                 </a>
               ))}
-              <Button className="bg-primary text-primary-foreground w-full">Get a Quote</Button>
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="text-sm tracking-[0.15em] uppercase text-primary"
+              >
+                Get a Quote →
+              </a>
             </div>
           </motion.div>
         )}

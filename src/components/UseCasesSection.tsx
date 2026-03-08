@@ -1,65 +1,73 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Palette } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-const useCases = [
+const cases = [
   {
     icon: GraduationCap,
     title: "Education",
-    description: "Engage students with interactive lessons, real-time collaboration, and immersive visual content.",
-    color: "from-primary/20 to-primary/5",
+    description: "Interactive lessons. Real-time collaboration. Students engaged like never before.",
+    num: "01",
   },
   {
     icon: Briefcase,
     title: "Business",
-    description: "Elevate presentations, brainstorms, and team meetings with seamless hybrid collaboration tools.",
-    color: "from-accent/20 to-accent/5",
+    description: "Elevate presentations, brainstorms, and hybrid meetings with seamless tools.",
+    num: "02",
   },
   {
     icon: Palette,
-    title: "Design & Creativity",
-    description: "Sketch, edit, and ideate like never before with multi-touch precision and 4K clarity.",
-    color: "from-primary/20 to-accent/5",
+    title: "Creative",
+    description: "Sketch, annotate, and ideate with multi-touch precision and 4K clarity.",
+    num: "03",
   },
 ];
 
 const UseCasesSection = () => {
   return (
-    <section id="usecases" className="py-24 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      
-      <div className="container mx-auto px-6">
-        <motion.div
+    <section id="industries" className="py-32">
+      <div className="container mx-auto">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-xs tracking-[0.3em] uppercase text-primary font-mono mb-4"
+        >
+          Industries
+        </motion.p>
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-4xl sm:text-5xl font-display font-bold tracking-tight mb-20"
         >
-          <span className="text-primary text-sm font-medium tracking-widest uppercase">Use Cases</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">
-            Built for <span className="gradient-text">Every Industry</span>
-          </h2>
-        </motion.div>
+          Built for every
+          <br />
+          <span className="text-muted-foreground">environment.</span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {useCases.map((uc, i) => (
+        <div className="grid md:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden">
+          {cases.map((c, i) => (
             <motion.div
-              key={uc.title}
+              key={c.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="group relative rounded-2xl overflow-hidden glass border-glow hover:bg-secondary/30 transition-all duration-500"
+              className="bg-card p-8 sm:p-10 group hover:bg-secondary/50 transition-all duration-500"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${uc.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              <div className="relative p-8">
-                <uc.icon className="w-12 h-12 text-primary mb-6" />
-                <h3 className="text-xl font-bold font-display mb-3">{uc.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{uc.description}</p>
-                <Button variant="outline" size="sm" className="border-primary/30 hover:bg-primary/10 hover:border-primary/50 text-primary">
-                  See Pricing
-                </Button>
-              </div>
+              <span className="text-xs font-mono text-muted-foreground">{c.num}</span>
+              <c.icon
+                size={28}
+                className="text-muted-foreground group-hover:text-primary transition-colors duration-300 mt-6 mb-6"
+              />
+              <h3 className="text-xl font-display font-bold mb-3">{c.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{c.description}</p>
+              <a
+                href="#contact"
+                className="inline-block mt-6 text-xs tracking-[0.15em] uppercase text-primary font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                Learn More →
+              </a>
             </motion.div>
           ))}
         </div>

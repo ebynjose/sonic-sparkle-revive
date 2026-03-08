@@ -1,31 +1,71 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "10+", label: "Years of Experience" },
-  { value: "500+", label: "Clients Worldwide" },
-  { value: "30+", label: "Countries Served" },
-  { value: "50+", label: "Patents & Copyrights" },
+  { target: 10, suffix: "+", label: "Years Experience" },
+  { target: 500, suffix: "+", label: "Global Clients" },
+  { target: 30, suffix: "+", label: "Countries" },
+  { target: 50, suffix: "+", label: "Patents" },
 ];
+
+const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const duration = 1500;
+          const steps = 40;
+          const increment = target / steps;
+          let current = 0;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              setCount(target);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(current));
+            }
+          }, duration / steps);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return (
+    <div ref={ref} className="text-4xl sm:text-5xl font-display font-bold text-foreground">
+      {count}
+      <span className="text-primary">{suffix}</span>
+    </div>
+  );
+};
 
 const StatsSection = () => {
   return (
-    <section className="py-16 relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5" />
-      <div className="container mx-auto px-6 relative">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, i) => (
+    <section className="py-20 border-y border-border">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+          {stats.map((s, i) => (
             <motion.div
-              key={stat.label}
+              key={s.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-bold gradient-text font-display mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <Counter target={s.target} suffix={s.suffix} />
+              <p className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground mt-2 font-mono">
+                {s.label}
+              </p>
             </motion.div>
           ))}
         </div>
