@@ -100,7 +100,7 @@ const FeaturesSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="lg:sticky lg:top-32"
+            className="lg:sticky lg:top-32 relative z-0"
           >
             <div className="p-8 sm:p-12 rounded-2xl bg-card border border-border glow">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
