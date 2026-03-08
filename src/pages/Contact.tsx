@@ -193,53 +193,53 @@ const Contact = () => {
               Dubai, <span className="text-muted-foreground">UAE</span>
             </h2>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin size={18} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium mb-1">Address</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Office 1205, Al Shafar Tower 1,<br />
-                    Barsha Heights (TECOM),<br />
-                    Dubai, United Arab Emirates
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone size={18} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium mb-1">Phone</p>
-                  <p className="text-xs text-muted-foreground">+971 4 551 4700</p>
-                  <p className="text-xs text-muted-foreground">+971 50 123 4567</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail size={18} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium mb-1">Email</p>
-                  <p className="text-xs text-muted-foreground">info@sonichive.com</p>
-                  <p className="text-xs text-muted-foreground">sales@sonichive.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock size={18} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium mb-1">Working Hours</p>
-                  <p className="text-xs text-muted-foreground">Sun – Thu: 9:00 AM – 6:00 PM</p>
-                  <p className="text-xs text-muted-foreground">Fri – Sat: Closed</p>
-                </div>
-              </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                {
+                  icon: MapPin,
+                  label: "Address",
+                  lines: ["Office 1205, Al Shafar Tower 1", "Barsha Heights (TECOM)", "Dubai, UAE"],
+                },
+                {
+                  icon: Phone,
+                  label: "Phone",
+                  lines: ["+971 4 551 4700", "+971 50 123 4567"],
+                },
+                {
+                  icon: Mail,
+                  label: "Email",
+                  lines: ["info@sonichive.com", "sales@sonichive.com"],
+                },
+                {
+                  icon: Clock,
+                  label: "Working Hours",
+                  lines: ["Sun – Thu: 9:00 AM – 6:00 PM", "Fri – Sat: Closed"],
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="group relative p-6 rounded-2xl border border-border bg-card hover:border-primary/20 transition-all duration-500 overflow-hidden"
+                >
+                  {/* Subtle gradient accent on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative">
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors duration-300">
+                      <item.icon size={20} className="text-primary" />
+                    </div>
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-primary font-mono mb-3">{item.label}</p>
+                    <div className="space-y-1.5">
+                      {item.lines.map((line, j) => (
+                        <p key={j} className="text-sm text-muted-foreground leading-relaxed">{line}</p>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Branch list inline */}
