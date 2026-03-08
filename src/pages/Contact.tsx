@@ -213,7 +213,7 @@ const Contact = () => {
                 {
                   icon: Clock,
                   label: "Working Hours",
-                  lines: ["Sun – Thu: 9:00 AM – 6:00 PM", "Fri – Sat: Closed"],
+                  lines: ["Mon – Sat: 9:30 AM – 7:00 PM", "Sunday: Closed"],
                 },
               ].map((item, i) => (
                 <motion.div
