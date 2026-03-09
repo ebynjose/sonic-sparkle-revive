@@ -34,11 +34,17 @@ const Footer = () => {
           <div className="space-y-5">
             <h4 className="text-xs tracking-[0.2em] uppercase text-foreground font-mono font-bold">Products</h4>
             <ul className="space-y-3">
-              {["Interactive Displays", "Smartboards", "Video Conferencing", "Digital Signage", "Accessories"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </a>
+              {[
+                { label: "Interactive Displays", href: "/products" },
+                { label: "Smartboards", href: "/products" },
+                { label: "Video Conferencing", href: "/products" },
+                { label: "Digital Signage", href: "/products" },
+                { label: "Accessories", href: "/products" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link to={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
