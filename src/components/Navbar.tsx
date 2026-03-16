@@ -116,13 +116,20 @@ const Navbar = () => {
                   </Link>
                 )
               )}
-              <a
-                href="/#contact"
+              <button
+                onClick={toggleTheme}
+                className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                {theme === "dark" ? "Light Mode" : "Dark Mode"}
+              </button>
+              <Link
+                to="/contact"
                 onClick={() => setOpen(false)}
                 className="text-sm tracking-[0.15em] uppercase text-primary"
               >
                 Get a Quote →
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
