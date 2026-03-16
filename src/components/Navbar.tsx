@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useTheme } from "./ThemeProvider";
 
 const links = [
   { label: "Products", href: "/products" },
@@ -12,6 +13,7 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-5">
         <Link to="/" className="flex items-center">
-          <img src="/logo-sonichive.webp" alt="SonicHive Logo" className="h-8 md:h-10 brightness-0 invert" />
+          <img src="/logo-sonichive.webp" alt="SonicHive Logo" className={`h-8 md:h-10 brightness-0 ${theme === "dark" ? "invert" : ""}`} />
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
@@ -62,12 +64,22 @@ const Navbar = () => {
           )}
         </div>
 
-        <Link
-          to="/contact"
-          className="hidden md:inline-flex text-xs tracking-[0.15em] uppercase text-primary border border-primary/30 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-        >
-          Get a Quote
-        </Link>
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <Link
+            to="/contact"
+            className="text-xs tracking-[0.15em] uppercase text-primary border border-primary/30 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+          >
+            Get a Quote
+          </Link>
+        </div>
 
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -104,13 +116,20 @@ const Navbar = () => {
                   </Link>
                 )
               )}
-              <a
-                href="/#contact"
+              <button
+                onClick={toggleTheme}
+                className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                {theme === "dark" ? "Light Mode" : "Dark Mode"}
+              </button>
+              <Link
+                to="/contact"
                 onClick={() => setOpen(false)}
                 className="text-sm tracking-[0.15em] uppercase text-primary"
               >
                 Get a Quote →
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
