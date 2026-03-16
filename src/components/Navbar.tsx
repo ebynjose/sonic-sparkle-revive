@@ -13,6 +13,8 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
   const location = useLocation();
 
   useEffect(() => {
