@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const brands = [
   { name: "Microsoft", logo: "/logos/microsoft.svg" },
   { name: "Google", logo: "/logos/google.svg" },
-  { name: "Samsung", logo: "/logos/samsung.svg" },
+  
   { name: "Huawei", logo: "/logos/huawei.svg" },
   { name: "Cisco", logo: "/logos/cisco.svg" },
   { name: "Dell", logo: "/logos/dell.svg" },
