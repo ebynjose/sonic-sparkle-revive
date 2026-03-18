@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="space-y-6">
             <img 
-              src="/logo-sonichive.webp" 
-              alt="SonicHive Logo" 
-              className="h-8 brightness-0 invert" 
+              src="/logo-sonichive.png" 
+              alt="SonicHive Interactive Logo" 
+              className="h-8" 
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Transforming collaboration with cutting-edge interactive display solutions for modern workspaces.
