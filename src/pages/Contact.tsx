@@ -7,7 +7,6 @@ import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
-import Footer from "@/components/Footer";
 
 const branches = [
   { name: "UAE", city: "Dubai", role: "Head Office", x: 553, y: 215, isHQ: true },
