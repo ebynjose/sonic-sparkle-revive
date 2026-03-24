@@ -6,6 +6,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
 
 const branches = [
   { name: "UAE", city: "Dubai", role: "Head Office", x: 553, y: 215, isHQ: true },
@@ -20,10 +21,24 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [hoveredBranch, setHoveredBranch] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! We'll get back to you shortly.");
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-contact-email", {
+        body: form,
+      });
+      if (error) throw error;
+      toast.success("Message sent! We'll get back to you shortly.");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -278,8 +293,8 @@ const Contact = () => {
                 rows={5}
                 className="w-full rounded-lg border border-border bg-background px-3 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30 resize-none"
               />
-              <Button type="submit" size="lg" className="w-full gap-2 mt-2">
-                Send Message <ArrowRight size={16} />
+              <Button type="submit" size="lg" className="w-full gap-2 mt-2" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"} {!isSubmitting && <ArrowRight size={16} />}
               </Button>
               <Button
                 type="button"
