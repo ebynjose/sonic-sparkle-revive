@@ -293,8 +293,8 @@ const Contact = () => {
                 rows={5}
                 className="w-full rounded-lg border border-border bg-background px-3 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30 resize-none"
               />
-              <Button type="submit" size="lg" className="w-full gap-2 mt-2">
-                Send Message <ArrowRight size={16} />
+              <Button type="submit" size="lg" className="w-full gap-2 mt-2" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"} {!isSubmitting && <ArrowRight size={16} />}
               </Button>
               <Button
                 type="button"
