@@ -21,10 +21,24 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [hoveredBranch, setHoveredBranch] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! We'll get back to you shortly.");
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-contact-email", {
+        body: form,
+      });
+      if (error) throw error;
+      toast.success("Message sent! We'll get back to you shortly.");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
