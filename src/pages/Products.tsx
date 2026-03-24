@@ -54,15 +54,15 @@ const Products = () => {
 
       {/* Filters */}
       <section className="border-y border-border">
-        <div className="container mx-auto py-4 flex gap-6 overflow-x-auto no-scrollbar">
+        <div className="container mx-auto py-5 flex items-center gap-3 overflow-x-auto no-scrollbar">
           {filters.map((f) => (
             <button
               key={f.value}
               onClick={() => setActiveFilter(f.value)}
-              className={`text-xs tracking-[0.2em] uppercase font-mono whitespace-nowrap transition-colors duration-300 pb-1 ${
+              className={`text-xs tracking-[0.15em] uppercase font-mono whitespace-nowrap transition-all duration-300 rounded-full px-5 py-2.5 border cursor-pointer ${
                 activeFilter === f.value
-                  ? "text-primary border-b border-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-primary text-primary-foreground border-primary shadow-md"
+                  : "bg-transparent text-muted-foreground border-border hover:border-primary hover:text-primary hover:bg-primary/5"
               }`}
             >
               {f.label}
