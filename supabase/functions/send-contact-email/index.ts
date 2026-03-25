@@ -31,7 +31,7 @@ serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "SonicHive Contact <onboarding@resend.dev>",
+        from: "SonicHive Contact <noreply@thesonichive.com>",
         to: ["info@thesonichive.com"],
         subject: `New Lead: ${name}`,
         html: `
