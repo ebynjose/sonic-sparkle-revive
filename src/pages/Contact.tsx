@@ -189,17 +189,17 @@ const Contact = () => {
                 {
                   icon: MapPin,
                   label: "Address",
-                  lines: ["Office 1205, Al Shafar Tower 1", "Barsha Heights (TECOM)", "Dubai, UAE"],
+                  lines: ["Dubai Mall Metro Station Exit 2,", "Ground Floor, Al Wasl Building - 2", "Sheikh Zayed Rd, Dubai"],
                 },
                 {
                   icon: Phone,
                   label: "Phone",
-                  lines: ["+971 4 551 4700", "+971 50 123 4567"],
+                  lines: ["+971 52 516 2572"],
                 },
                 {
                   icon: Mail,
                   label: "Email",
-                  lines: ["info@sonichive.com", "sales@sonichive.com"],
+                  lines: ["info@sonichiveinteractive.com"],
                 },
                 {
                   icon: Clock,

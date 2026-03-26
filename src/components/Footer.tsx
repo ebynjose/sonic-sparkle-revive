@@ -77,19 +77,19 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <span className="text-sm text-muted-foreground">
-                  123 Innovation Drive<br />Tech District, CA 94105
+                  Dubai Mall Metro Station Exit 2,<br />Ground Floor, Al Wasl Building - 2<br />Sheikh Zayed Rd, Dubai
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:+1234567890" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+971525162572" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  +971 52 516 2572
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                <a href="mailto:info@sonichive.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  info@sonichive.com
+                <a href="mailto:info@sonichiveinteractive.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  info@sonichiveinteractive.com
                 </a>
               </li>
             </ul>
