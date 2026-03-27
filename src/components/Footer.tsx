@@ -35,11 +35,11 @@ const Footer = () => {
             <h4 className="text-xs tracking-[0.2em] uppercase text-foreground font-mono font-bold">Products</h4>
             <ul className="space-y-3">
               {[
-                { label: "Interactive Displays", href: "/products" },
-                { label: "Smartboards", href: "/products" },
-                { label: "Video Conferencing", href: "/products" },
-                { label: "Digital Signage", href: "/products" },
-                { label: "Accessories", href: "/products" },
+                { label: 'Smart Board 55"', href: "/products/smart-board-55" },
+                { label: 'Smart Board 65"', href: "/products/smart-board-65" },
+                { label: 'Smart Board 75"', href: "/products/smart-board-75" },
+                { label: 'Smart Board 86"', href: "/products/smart-board-86" },
+                { label: "Accessories", href: "/products?category=accessory" },
               ].map((item) => (
                 <li key={item.label}>
                   <Link to={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -56,9 +56,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { label: "About Us", href: "/about" },
-                { label: "Careers", href: "/about" },
-                { label: "Partners", href: "/about" },
-                { label: "News & Blog", href: "/about" },
+                { label: "News & Blog", href: "/blog" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
