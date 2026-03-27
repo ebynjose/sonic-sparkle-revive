@@ -3,63 +3,7 @@ import { Calendar, ArrowRight, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const blogPosts = [
-  {
-    id: "future-of-interactive-displays",
-    title: "The Future of Interactive Displays in Modern Workspaces",
-    excerpt: "Discover how AI-powered smart boards are revolutionizing the way teams collaborate, present, and brainstorm in 2025 and beyond.",
-    date: "March 20, 2025",
-    readTime: "5 min read",
-    category: "Industry Trends",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=500&fit=crop",
-  },
-  {
-    id: "smart-board-vs-traditional",
-    title: "Smart Board vs Traditional Whiteboard: Why Businesses Are Switching",
-    excerpt: "A comprehensive comparison of interactive smart boards and traditional whiteboards — covering productivity, cost-efficiency, and long-term ROI.",
-    date: "March 12, 2025",
-    readTime: "7 min read",
-    category: "Product Insights",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=500&fit=crop",
-  },
-  {
-    id: "digital-classrooms-uae",
-    title: "How Digital Classrooms Are Transforming Education in the UAE",
-    excerpt: "Schools across the UAE are adopting interactive technology to create engaging, immersive learning experiences for students of all ages.",
-    date: "February 28, 2025",
-    readTime: "6 min read",
-    category: "Education",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&fit=crop",
-  },
-  {
-    id: "video-conferencing-tips",
-    title: "5 Tips to Elevate Your Video Conferencing Setup",
-    excerpt: "From camera placement to display quality — practical advice to make your virtual meetings feel as natural as in-person conversations.",
-    date: "February 15, 2025",
-    readTime: "4 min read",
-    category: "Tips & Guides",
-    image: "https://images.unsplash.com/photo-1587825140708-dfaf18c4c5ad?w=800&h=500&fit=crop",
-  },
-  {
-    id: "sonichive-partnership-program",
-    title: "SonicHive Launches Channel Partner Program Across the Middle East",
-    excerpt: "We're expanding our reach with a new partner program designed to bring interactive display solutions to more businesses and institutions.",
-    date: "January 30, 2025",
-    readTime: "3 min read",
-    category: "Company News",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop",
-  },
-  {
-    id: "touchscreen-technology-evolution",
-    title: "The Evolution of Touchscreen Technology: From Resistive to AI-Powered",
-    excerpt: "A deep dive into how touch technology has evolved over the decades and what the next generation of interactive displays will look like.",
-    date: "January 18, 2025",
-    readTime: "8 min read",
-    category: "Technology",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=500&fit=crop",
-  },
-];
+import { blogPosts } from "@/data/blogPosts";
 
 const Blog = () => {
   return (
