@@ -4,14 +4,10 @@ import { useRef } from "react";
 import lifestyleOffice from "@/assets/lifestyle-office.jpg";
 
 const items = [
-  { icon: MonitorSmartphone, name: "Projector", desc: "One-click wireless casting" },
   { icon: Pen, name: "Touch Pen", desc: "Dual-tip magnetic stylus" },
   { icon: Pointer, name: "Pointer", desc: "7-section telescopic steel" },
   { icon: FlipHorizontal, name: "Page Turner", desc: "PPT remote with laser" },
   { icon: Mouse, name: "Smart Pen", desc: "Air mouse gesture control" },
-  { icon: ScanLine, name: "Scanner", desc: "10MP document projection" },
-  { icon: Camera, name: "Camera", desc: "13MP/48MP with 8-mic array" },
-  { icon: Cpu, name: "OPS Box", desc: "Intel Core computing module" },
 ];
 
 const AccessoriesSection = () => {
