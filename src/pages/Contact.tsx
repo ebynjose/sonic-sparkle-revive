@@ -156,7 +156,7 @@ const Contact = () => {
               className="rounded-2xl border border-border bg-gradient-to-br from-muted/50 to-card p-6 flex items-center justify-between"
             >
               <div>
-                <p className="text-3xl font-display font-bold">6</p>
+               <p className="text-3xl font-display font-bold">4</p>
                 <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono mt-1">Global Offices</p>
               </div>
               <div className="flex -space-x-1">
