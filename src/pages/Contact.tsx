@@ -13,8 +13,6 @@ const branches = [
   { name: "Qatar", city: "Doha", x: 545, y: 222, isHQ: false },
   { name: "Saudi Arabia", city: "Riyadh", x: 520, y: 218, isHQ: false },
   { name: "Bahrain", city: "Manama", x: 540, y: 210, isHQ: false },
-  { name: "China", city: "Shenzhen", x: 735, y: 195, isHQ: false },
-  { name: "India", city: "Mumbai", x: 640, y: 230, isHQ: false },
 ];
 
 const Contact = () => {
