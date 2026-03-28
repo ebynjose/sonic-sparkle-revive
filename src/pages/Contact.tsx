@@ -99,7 +99,10 @@ const Contact = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone size={14} className="text-primary flex-shrink-0" />
-                    <p className="text-xs text-muted-foreground">+971 52 516 2572</p>
+                    <div className="text-xs text-muted-foreground space-y-1">
+                      <p>+971 52 516 2572</p>
+                      <p>+971 58 555 0099</p>
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={14} className="text-primary flex-shrink-0" />
