@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MonitorSmartphone, Pen, Pointer, FlipHorizontal, Mouse, ScanLine, Camera, Cpu } from "lucide-react";
+import { Pen, Pointer, FlipHorizontal, Mouse } from "lucide-react";
 import { useRef } from "react";
 import lifestyleOffice from "@/assets/lifestyle-office.jpg";
 

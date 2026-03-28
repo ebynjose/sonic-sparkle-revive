@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "Can multiple users interact with the display simultaneously?",
-    answer: "Absolutely! Our displays support up to 40 simultaneous touch points with zero latency, enabling true multi-user collaboration. Multiple participants can write, draw, and interact with content at the same time."
+    answer: "Absolutely! Our displays support up to 40-point infrared touch with zero latency, allowing 5–6 people to write simultaneously. Multiple participants can draw, annotate, and interact with content at the same time."
   },
   {
     question: "What is the installation process like?",

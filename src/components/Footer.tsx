@@ -39,6 +39,7 @@ const Footer = () => {
                 { label: 'Smart Board 65"', href: "/products/smart-board-65" },
                 { label: 'Smart Board 75"', href: "/products/smart-board-75" },
                 { label: 'Smart Board 86"', href: "/products/smart-board-86" },
+                { label: 'Smart Board 98"', href: "/products/smart-board-98" },
                 { label: "Accessories", href: "/products?category=accessory" },
               ].map((item) => (
                 <li key={item.label}>

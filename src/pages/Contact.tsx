@@ -160,7 +160,7 @@ const Contact = () => {
                 <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono mt-1">Global Offices</p>
               </div>
               <div className="flex -space-x-1">
-                {[...Array(6)].map((_, i) => (
+                {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
                     className={`w-3 h-3 rounded-full border-2 border-card ${i === 0 ? "bg-primary" : "bg-muted-foreground/30"}`}
