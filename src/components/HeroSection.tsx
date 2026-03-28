@@ -62,7 +62,7 @@ const HeroSection = () => {
         >
           {[
             { val: "4K", sub: "Ultra HD" },
-            { val: "20pt", sub: "Touch Points" },
+            { val: "40pt", sub: "Infra Touch" },
             { val: "<5ms", sub: "Response" },
           ].map((s) => (
             <div key={s.sub} className="border-l border-border pl-4">

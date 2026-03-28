@@ -39,6 +39,7 @@ const Footer = () => {
                 { label: 'Smart Board 65"', href: "/products/smart-board-65" },
                 { label: 'Smart Board 75"', href: "/products/smart-board-75" },
                 { label: 'Smart Board 86"', href: "/products/smart-board-86" },
+                { label: 'Smart Board 98"', href: "/products/smart-board-98" },
                 { label: "Accessories", href: "/products?category=accessory" },
               ].map((item) => (
                 <li key={item.label}>
@@ -80,9 +81,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:+971525162572" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  +971 52 516 2572
-                </a>
+                <div className="space-y-1">
+                  <a href="tel:+971525162572" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+                    +971 52 516 2572
+                  </a>
+                  <a href="tel:+971585550099" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+                    +971 58 555 0099
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />

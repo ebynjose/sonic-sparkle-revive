@@ -13,8 +13,6 @@ const branches = [
   { name: "Qatar", city: "Doha", x: 545, y: 222, isHQ: false },
   { name: "Saudi Arabia", city: "Riyadh", x: 520, y: 218, isHQ: false },
   { name: "Bahrain", city: "Manama", x: 540, y: 210, isHQ: false },
-  { name: "China", city: "Shenzhen", x: 735, y: 195, isHQ: false },
-  { name: "India", city: "Mumbai", x: 640, y: 230, isHQ: false },
 ];
 
 const Contact = () => {
@@ -101,7 +99,10 @@ const Contact = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone size={14} className="text-primary flex-shrink-0" />
-                    <p className="text-xs text-muted-foreground">+971 52 516 2572</p>
+                    <div className="text-xs text-muted-foreground space-y-1">
+                      <p>+971 52 516 2572</p>
+                      <p>+971 58 555 0099</p>
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={14} className="text-primary flex-shrink-0" />
@@ -155,11 +156,11 @@ const Contact = () => {
               className="rounded-2xl border border-border bg-gradient-to-br from-muted/50 to-card p-6 flex items-center justify-between"
             >
               <div>
-                <p className="text-3xl font-display font-bold">6</p>
+               <p className="text-3xl font-display font-bold">4</p>
                 <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono mt-1">Global Offices</p>
               </div>
               <div className="flex -space-x-1">
-                {[...Array(6)].map((_, i) => (
+                {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
                     className={`w-3 h-3 rounded-full border-2 border-card ${i === 0 ? "bg-primary" : "bg-muted-foreground/30"}`}
@@ -194,7 +195,7 @@ const Contact = () => {
                 {
                   icon: Phone,
                   label: "Phone",
-                  lines: ["+971 52 516 2572"],
+                  lines: ["+971 52 516 2572", "+971 58 555 0099"],
                 },
                 {
                   icon: Mail,

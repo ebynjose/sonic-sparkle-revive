@@ -12,7 +12,7 @@ const features = [
     icon: Fingerprint,
     title: "Multi-Touch",
     subtitle: "Touch, Write & Control — All at Once",
-    description: "20-point touch lets multiple users write, draw, and interact simultaneously. Zero lag. Infinite possibilities.",
+    description: "40-point infrared touch lets 5–6 users write, draw, and interact simultaneously. Zero lag. Infinite possibilities.",
     image: detailTouch,
   },
   {
