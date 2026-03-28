@@ -18,10 +18,17 @@ const Footer = () => {
               Transforming collaboration with cutting-edge interactive display solutions for modern workspaces.
             </p>
             <div className="flex gap-3">
-              {[Linkedin, Twitter, Youtube, Instagram].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/sonichiveinteractive/" },
+                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61581750567015" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/sonichive-interactive/" },
+                { Icon: Youtube, href: "https://www.youtube.com/@Sonichive-interactive" },
+              ].map(({ Icon, href }, i) => (
                 <a 
                   key={i}
-                  href="#" 
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 >
                   <Icon className="w-4 h-4" />
