@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Youtube, Instagram, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -18,15 +18,32 @@ const Footer = () => {
               Transforming collaboration with cutting-edge interactive display solutions for modern workspaces.
             </p>
             <div className="flex gap-3">
-              {[Linkedin, Twitter, Youtube, Instagram].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/sonichiveinteractive/" },
+                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61581750567015" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/sonichive-interactive/" },
+                { Icon: Youtube, href: "https://www.youtube.com/@Sonichive-interactive" },
+              ].map(({ Icon, href }, i) => (
                 <a 
                   key={i}
-                  href="#" 
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
+              <a
+                href="https://www.tiktok.com/@sonichiveinteractive?lang=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52V6.79a4.85 4.85 0 01-1-.1z"/>
+                </svg>
+              </a>
             </div>
           </div>
 
