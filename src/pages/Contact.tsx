@@ -195,7 +195,7 @@ const Contact = () => {
                 {
                   icon: Phone,
                   label: "Phone",
-                  lines: ["+971 52 516 2572"],
+                  lines: ["+971 52 516 2572", "+971 58 555 0099"],
                 },
                 {
                   icon: Mail,
