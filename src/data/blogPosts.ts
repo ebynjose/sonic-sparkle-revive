@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
     date: "February 15, 2025",
     readTime: "4 min read",
     category: "Tips & Guides",
-    image: "https://images.unsplash.com/photo-1587825140708-dfaf18c4c5ad?w=800&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
     metaDescription: "Improve your video conferencing setup with expert tips on display quality, camera placement, and audio optimization. Perfect for businesses in Dubai upgrading their meeting room technology.",
     content: [
       "Video conferencing has become the backbone of modern business communication. Whether you're connecting with clients in Dubai, partners in Europe, or team members working remotely, the quality of your video conferencing setup directly impacts the effectiveness of your meetings.",
