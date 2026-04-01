@@ -18,7 +18,7 @@ const HeroSection = () => {
       <motion.div className="absolute inset-0" style={{ y: imgY, scale: imgScale }}>
         <img src={heroImg} alt="" className="w-full h-full object-cover opacity-40" />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 via-50% to-transparent" />
 
       <motion.div className="container mx-auto relative z-10 pt-32 pb-20" style={{ y: textY, opacity }}>
         <motion.p
