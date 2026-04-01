@@ -9,18 +9,18 @@ import lifestyleMeeting from "@/assets/lifestyle-meeting.jpg";
 
 const features = [
   {
-    icon: Fingerprint,
-    title: "Multi-Touch",
-    subtitle: "Touch, Write & Control — All at Once",
-    description: "40-point infrared touch lets 5–6 users write, draw, and interact simultaneously. Zero lag. Infinite possibilities.",
-    image: detailTouch,
-  },
-  {
     icon: Monitor,
     title: "4K Ultra HD",
     subtitle: "See the Difference in Every Pixel",
     description: "Crystal-clear 4K resolution delivers stunning visuals that make every presentation immersive and lifelike.",
     image: lifestyleBoardroom,
+  },
+  {
+    icon: Fingerprint,
+    title: "Multi-Touch",
+    subtitle: "Touch, Write & Control — All at Once",
+    description: "40-point infrared touch lets 5–6 users write, draw, and interact simultaneously. Zero lag. Infinite possibilities.",
+    image: detailTouch,
   },
   {
     icon: Wifi,
