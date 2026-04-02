@@ -1,16 +1,12 @@
 import { motion } from "framer-motion";
 
 const brands = [
-  { name: "Microsoft", logo: "/logos/microsoft.svg" },
-  { name: "Google", logo: "/logos/google.svg" },
-  
-  { name: "Huawei", logo: "/logos/huawei.svg" },
-  { name: "Cisco", logo: "/logos/cisco.svg" },
-  { name: "Dell", logo: "/logos/dell.svg" },
-  { name: "HP", logo: "/logos/hp.svg" },
-  { name: "Lenovo", logo: "/logos/lenovo.svg" },
-  { name: "LG", logo: "/logos/lg.svg" },
-  { name: "Panasonic", logo: "/logos/panasonic.svg" },
+  { name: "ISAS Beauty Academy", logo: "/logos/isas.png" },
+  { name: "EFCO Design and Build", logo: "/logos/efco.png" },
+  { name: "Cloudlink Solutions", logo: "/logos/cloudlink.png" },
+  { name: "Maple Arcadia Properties", logo: "/logos/maple-arcadia.png" },
+  { name: "Gulf United", logo: "/logos/gulf-united.svg" },
+  { name: "Gulf Bulls", logo: "/logos/gulf-bulls.avif" },
 ];
 
 const TrustedBrandsSection = () => {
