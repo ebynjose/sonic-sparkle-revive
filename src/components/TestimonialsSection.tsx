@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
             <div>
               <p className="font-display font-semibold text-sm">{testimonials[active].name}</p>
               <p className="text-xs text-muted-foreground mt-0.5">{testimonials[active].role}</p>
-              <p className="text-[10px] font-mono text-primary/70 tracking-wider uppercase mt-1">
+              <p className="text-[10px] font-mono text-primary tracking-wider uppercase mt-1">
                 {testimonials[active].location}
               </p>
             </div>
