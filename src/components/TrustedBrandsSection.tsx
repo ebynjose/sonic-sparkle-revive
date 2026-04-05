@@ -37,6 +37,9 @@ const TrustedBrandsSection = () => {
                 src={brand.logo}
                 alt={brand.name}
                 className="h-10 sm:h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300 object-contain max-w-[160px] brightness-0 dark:invert"
+                width="160"
+                height="48"
+                loading="lazy"
               />
             </div>
           ))}

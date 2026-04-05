@@ -12,23 +12,27 @@ const Footer = () => {
             <img 
               src="/logo-sonichive.png" 
               alt="SonicHive Interactive Logo" 
-              className="h-8" 
+              className="h-8"
+              width="182"
+              height="56"
+              loading="lazy"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Transforming collaboration with cutting-edge interactive display solutions for modern workspaces.
             </p>
             <div className="flex gap-3">
               {[
-                { Icon: Instagram, href: "https://www.instagram.com/sonichiveinteractive/" },
-                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61581750567015" },
-                { Icon: Linkedin, href: "https://www.linkedin.com/company/sonichive-interactive/" },
-                { Icon: Youtube, href: "https://www.youtube.com/@Sonichive-interactive" },
-              ].map(({ Icon, href }, i) => (
+                { Icon: Instagram, href: "https://www.instagram.com/sonichiveinteractive/", label: "Instagram" },
+                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61581750567015", label: "Facebook" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/sonichive-interactive/", label: "LinkedIn" },
+                { Icon: Youtube, href: "https://www.youtube.com/@Sonichive-interactive", label: "YouTube" },
+              ].map(({ Icon, href, label }, i) => (
                 <a 
                   key={i}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Follow us on ${label}`}
                   className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 >
                   <Icon className="w-4 h-4" />
@@ -38,9 +42,10 @@ const Footer = () => {
                 href="https://www.tiktok.com/@sonichiveinteractive?lang=en"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on TikTok"
                 className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52V6.79a4.85 4.85 0 01-1-.1z"/>
                 </svg>
               </a>
