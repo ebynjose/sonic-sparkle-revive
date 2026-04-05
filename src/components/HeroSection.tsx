@@ -16,7 +16,7 @@ const HeroSection = () => {
     <section ref={ref} className="relative min-h-[110vh] flex flex-col justify-center overflow-hidden">
       {/* Parallax background */}
       <motion.div className="absolute inset-0" style={{ y: imgY, scale: imgScale }}>
-        <img src={heroImg} alt="" className="w-full h-full object-cover opacity-40" />
+        <img src={heroImg} alt="" className="w-full h-full object-cover opacity-40" fetchPriority="high" />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 via-50% to-transparent" />
 

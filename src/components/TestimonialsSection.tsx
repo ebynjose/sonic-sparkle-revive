@@ -110,7 +110,7 @@ const TestimonialsSection = () => {
                 <p className={`text-sm font-medium ${i === active ? "text-foreground" : "text-muted-foreground"}`}>
                   {t.name}
                 </p>
-                <p className="text-[10px] text-muted-foreground/70 mt-0.5">{t.role}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">{t.role}</p>
               </button>
             ))}
           </div>

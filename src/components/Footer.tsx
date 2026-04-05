@@ -12,7 +12,10 @@ const Footer = () => {
             <img 
               src="/logo-sonichive.png" 
               alt="SonicHive Interactive Logo" 
-              className="h-8" 
+              className="h-8"
+              width="182"
+              height="56"
+              loading="lazy"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Transforming collaboration with cutting-edge interactive display solutions for modern workspaces.
