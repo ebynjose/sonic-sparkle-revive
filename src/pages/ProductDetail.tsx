@@ -34,19 +34,19 @@ const ProductDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-28 pb-20">
-        <div className="container mx-auto">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-20">
+        <div className="container mx-auto px-4 sm:px-6">
           {/* Breadcrumb */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary font-mono transition-colors mb-10"
+              className="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary font-mono transition-colors mb-6 sm:mb-10"
             >
               <ArrowLeft size={12} /> All Products
             </Link>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-start">
             {/* Image Gallery */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -54,7 +54,7 @@ const ProductDetail = () => {
               transition={{ duration: 0.6 }}
             >
               {/* Main Image */}
-              <div className="aspect-square rounded-2xl bg-card border border-border flex items-center justify-center p-8 mb-4 overflow-hidden">
+              <div className="aspect-[4/3] sm:aspect-square rounded-xl sm:rounded-2xl bg-card border border-border flex items-center justify-center p-4 sm:p-8 mb-3 sm:mb-4 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeImg}
@@ -102,11 +102,11 @@ const ProductDetail = () => {
               <span className="text-[10px] tracking-[0.25em] uppercase text-primary font-mono">
                 {product.category === "smart-board" ? "Smart Board" : "Accessory"}
               </span>
-              <h1 className="text-4xl sm:text-5xl font-display font-bold tracking-tight mt-2 mb-3">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight mt-2 mb-2 sm:mb-3">
                 {product.name}
               </h1>
-              <p className="text-lg text-muted-foreground font-light mb-8">{product.tagline}</p>
-              <p className="text-sm text-secondary-foreground leading-relaxed mb-10">
+              <p className="text-base sm:text-lg text-muted-foreground font-light mb-4 sm:mb-8">{product.tagline}</p>
+              <p className="text-sm text-secondary-foreground leading-relaxed mb-6 sm:mb-10">
                 {product.description}
               </p>
 
