@@ -304,7 +304,7 @@ const Contact = () => {
                 className="w-full gap-2 border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366]/10 hover:text-[#25D366] hover:border-[#25D366]/50"
                 asChild
               >
-                <a href="https://web.whatsapp.com/send?phone=971525162572" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/971525162572" target="_blank" rel="noopener noreferrer">
                   <MessageCircle size={18} /> Chat on WhatsApp
                 </a>
               </Button>
