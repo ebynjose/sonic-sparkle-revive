@@ -6,11 +6,13 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { products } from "@/data/products";
+import QuoteFormDialog from "@/components/QuoteFormDialog";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === id);
   const [activeImg, setActiveImg] = useState(0);
+  const [quoteOpen, setQuoteOpen] = useState(false);
 
   if (!product) {
     return (
@@ -126,11 +128,10 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              <Button size="lg" className="gap-2" asChild>
-                <Link to="/contact">
-                  Get a Quote <ArrowRight size={16} />
-                </Link>
+              <Button size="lg" className="gap-2" onClick={() => setQuoteOpen(true)}>
+                Get a Quote <ArrowRight size={16} />
               </Button>
+              <QuoteFormDialog open={quoteOpen} onOpenChange={setQuoteOpen} />
             </motion.div>
           </div>
         </div>
