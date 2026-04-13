@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "./ThemeProvider";
+import QuoteFormDialog from "./QuoteFormDialog";
 
 const links = [
   { label: "Products", href: "/products" },
@@ -14,6 +15,7 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
@@ -74,12 +76,12 @@ const Navbar = () => {
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
-          <Link
-            to="/contact"
+          <button
+            onClick={() => setQuoteOpen(true)}
             className="text-xs tracking-[0.15em] uppercase text-primary border border-primary/30 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
             Get a Quote
-          </Link>
+          </button>
         </div>
 
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"}>
@@ -124,17 +126,17 @@ const Navbar = () => {
                 {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                 {theme === "dark" ? "Light Mode" : "Dark Mode"}
               </button>
-              <Link
-                to="/contact"
-                onClick={() => setOpen(false)}
-                className="text-sm tracking-[0.15em] uppercase text-primary"
+              <button
+                onClick={() => { setOpen(false); setQuoteOpen(true); }}
+                className="text-sm tracking-[0.15em] uppercase text-primary text-left"
               >
                 Get a Quote →
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      <QuoteFormDialog open={quoteOpen} onOpenChange={setQuoteOpen} />
     </nav>
   );
 };
