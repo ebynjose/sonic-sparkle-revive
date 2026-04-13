@@ -53,6 +53,7 @@ export const products: Product[] = [
       { label: "OPS Slot", value: "Available" },
       { label: "OS", value: "Android 13" },
       { label: "Connectivity", value: "Wi-Fi 6, BT 5.0" },
+      { label: "Warranty", value: "1 Year (Extended options available)" },
     ],
   },
   {
@@ -73,6 +74,7 @@ export const products: Product[] = [
       { label: "OPS Slot", value: "Available" },
       { label: "OS", value: "Android 13" },
       { label: "Connectivity", value: "Wi-Fi 6, BT 5.0" },
+      { label: "Warranty", value: "1 Year (Extended options available)" },
     ],
   },
   {
@@ -92,6 +94,7 @@ export const products: Product[] = [
       { label: "Camera", value: "Built-in (top)" },
       { label: "OPS Slot", value: "Available" },
       { label: "Connectivity", value: "Wi-Fi 6, BT 5.0" },
+      { label: "Warranty", value: "1 Year (Extended options available)" },
     ],
   },
   {
@@ -111,6 +114,7 @@ export const products: Product[] = [
       { label: "Camera", value: "Built-in (top)" },
       { label: "OPS Slot", value: "Available" },
       { label: "Connectivity", value: "Wi-Fi 6E, BT 5.2" },
+      { label: "Warranty", value: "1 Year (Extended options available)" },
     ],
   },
   {
@@ -130,6 +134,7 @@ export const products: Product[] = [
       { label: "Camera", value: "Built-in (top)" },
       { label: "OPS Slot", value: "Available" },
       { label: "Connectivity", value: "Wi-Fi 6E, BT 5.2" },
+      { label: "Warranty", value: "1 Year (Extended options available)" },
     ],
   },
   {
