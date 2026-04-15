@@ -12,7 +12,7 @@ const Footer = () => {
             <img 
               src="/logo-sonichive.png" 
               alt="SonicHive Interactive Logo" 
-              className="h-8"
+              className="h-8 dark:brightness-100 brightness-0"
               width="182"
               height="56"
               loading="lazy"
