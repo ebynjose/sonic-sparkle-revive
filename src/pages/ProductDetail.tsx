@@ -35,7 +35,7 @@ const ProductDetail = () => {
       <Navbar />
 
       <section className="pt-24 sm:pt-28 pb-12 sm:pb-20">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden">
           {/* Breadcrumb */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <Link
@@ -52,6 +52,7 @@ const ProductDetail = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="w-full min-w-0"
             >
               {/* Main Image */}
               <div className="aspect-[4/3] sm:aspect-square rounded-xl sm:rounded-2xl bg-card border border-border flex items-center justify-center p-4 sm:p-8 mb-3 sm:mb-4 overflow-hidden">
@@ -60,7 +61,7 @@ const ProductDetail = () => {
                     key={activeImg}
                     src={images[activeImg]}
                     alt={`${product.name} view ${activeImg + 1}`}
-                    className="w-4/5 h-4/5 object-contain"
+                    className="max-w-full max-h-full object-contain"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
@@ -71,12 +72,12 @@ const ProductDetail = () => {
 
               {/* Thumbnails */}
               {images.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+                <div className="grid grid-cols-5 gap-2">
                   {images.map((img, i) => (
                     <button
                       key={i}
                       onClick={() => setActiveImg(i)}
-                      className={`shrink-0 w-20 h-20 rounded-lg border-2 overflow-hidden bg-card flex items-center justify-center p-1.5 transition-all duration-200 cursor-pointer ${
+                      className={`aspect-square rounded-lg border-2 overflow-hidden bg-card flex items-center justify-center p-1 transition-all duration-200 cursor-pointer ${
                         activeImg === i
                           ? "border-primary shadow-md"
                           : "border-border hover:border-primary/40"
@@ -98,6 +99,7 @@ const ProductDetail = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
+              className="w-full min-w-0"
             >
               <span className="text-[10px] tracking-[0.25em] uppercase text-primary font-mono">
                 {product.category === "smart-board" ? "Smart Board" : "Accessory"}
@@ -106,7 +108,7 @@ const ProductDetail = () => {
                 {product.name}
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground font-light mb-4 sm:mb-8">{product.tagline}</p>
-              <p className="text-sm text-secondary-foreground leading-relaxed mb-6 sm:mb-10">
+              <p className="text-sm text-secondary-foreground leading-relaxed mb-6 sm:mb-10 break-words">
                 {product.description}
               </p>
 
@@ -119,10 +121,10 @@ const ProductDetail = () => {
                   {product.specs.map((spec) => (
                     <div
                       key={spec.label}
-                      className="flex items-center justify-between py-3 border-b border-border"
+                      className="flex items-start justify-between gap-4 py-3 border-b border-border"
                     >
-                      <span className="text-sm text-muted-foreground">{spec.label}</span>
-                      <span className="text-sm font-medium">{spec.value}</span>
+                      <span className="text-sm text-muted-foreground shrink-0">{spec.label}</span>
+                      <span className="text-sm font-medium text-right break-words min-w-0">{spec.value}</span>
                     </div>
                   ))}
                 </div>
