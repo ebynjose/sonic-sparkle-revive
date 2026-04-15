@@ -38,7 +38,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-5">
         <Link to="/" className="flex items-center">
-          <img src="/logo-sonichive.png" alt="SonicHive Interactive Logo" className={`h-7 sm:h-8 md:h-10 w-auto object-contain ${theme === "dark" ? "" : "brightness-0"}`} width="182" height="56" />
+          <img src="/logo-sonichive.png" alt="SonicHive Interactive Logo" className={`h-10 sm:h-12 md:h-14 w-auto object-contain ${theme === "dark" ? "" : "brightness-0"}`} />
         </Link>
 
         <div className="hidden md:flex items-center gap-10">

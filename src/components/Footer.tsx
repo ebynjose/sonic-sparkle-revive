@@ -12,7 +12,7 @@ const Footer = () => {
             <img 
               src="/logo-sonichive.png" 
               alt="SonicHive Interactive Logo" 
-              className="h-8 w-auto object-contain dark:brightness-100 brightness-0"
+              className="h-12 w-auto object-contain dark:brightness-100 brightness-0"
               loading="lazy"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
