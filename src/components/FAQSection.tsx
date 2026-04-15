@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "What warranty and support options do you provide?",
-    answer: "All our products come with a standard 3-year warranty covering parts and labor. We also offer extended warranty options up to 5 years, along with 24/7 technical support and on-site service for enterprise customers."
+    answer: "All our products come with a standard 1-year warranty covering parts and labor. We also offer extended warranty options, along with 24/7 technical support and on-site service for enterprise customers."
   },
   {
     question: "Can multiple users interact with the display simultaneously?",
