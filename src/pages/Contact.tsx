@@ -29,6 +29,9 @@ const Contact = () => {
         body: form,
       });
       if (error) throw error;
+      if (typeof (window as any).gtag_report_conversion === "function") {
+        (window as any).gtag_report_conversion();
+      }
       toast.success("Message sent! We'll get back to you shortly.");
       setForm({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
