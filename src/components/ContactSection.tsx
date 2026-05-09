@@ -36,7 +36,7 @@ const ContactSection = () => {
               className="w-full h-full object-cover"
               style={{ y: imgY, scale: 1.1 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/20" />
+            
             <div className="absolute bottom-8 left-8 right-8">
               <p className="text-xs font-mono text-primary tracking-[0.2em] uppercase mb-2">Trusted by</p>
               <p className="text-2xl font-display font-bold">500+ teams worldwide</p>
