@@ -36,7 +36,7 @@ const About = () => {
         <motion.div className="absolute inset-0" style={{ y: heroImgY }}>
           <img src={lifestyleBoardroom} alt="" className="w-full h-full object-cover opacity-30" />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+        <div className="absolute inset-0 bg-background/50" />
 
         <motion.div className="container mx-auto relative z-10 pb-20" style={{ y: heroTextY }}>
           <motion.p
