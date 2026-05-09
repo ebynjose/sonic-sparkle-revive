@@ -96,7 +96,7 @@ const About = () => {
                 <p className="text-secondary-foreground leading-relaxed mb-6">
                   Founded with a simple belief: technology should bring people together, not isolate them. 
                   What started as a small team building interactive displays has grown into a global operation 
-                  serving 500+ clients across 30+ countries.
+                  serving 500+ clients across 5+ countries.
                 </p>
                 <p className="text-secondary-foreground leading-relaxed mb-10">
                   Our Smart Board lineup represents years of R&D — combining 4K displays, AI-powered software, 
