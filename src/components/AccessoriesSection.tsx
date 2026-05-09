@@ -27,7 +27,7 @@ const AccessoriesSection = () => {
             className="w-full h-full object-cover"
             style={{ y: imgY, scale: 1.1 }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-background/40" />
           <div className="absolute bottom-0 left-0 p-8 sm:p-12 max-w-lg">
             <p className="text-xs tracking-[0.3em] uppercase text-primary font-mono mb-3">Accessories</p>
             <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight">
