@@ -39,28 +39,25 @@ const AccessoriesSection = () => {
         </div>
       </div>
 
-      {/* Horizontal scroll cards */}
-      <div className="overflow-x-clip">
-        <div
-          ref={scrollRef}
-          className="flex gap-4 overflow-x-auto no-scrollbar px-6 lg:px-[calc((100vw-1200px)/2+1.5rem)] pb-4"
-        >
+      {/* Responsive grid */}
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {items.map((item, i) => (
             <motion.div
               key={item.name}
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="flex-shrink-0 w-56 group"
+              className="group"
             >
-              <div className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-500 h-full">
+              <div className="p-8 sm:p-10 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 h-full">
                 <item.icon
-                  size={24}
-                  className="text-muted-foreground group-hover:text-primary transition-colors duration-300 mb-6"
+                  size={32}
+                  className="text-muted-foreground group-hover:text-primary transition-colors duration-300 mb-8"
                 />
-                <h4 className="font-display font-semibold text-sm mb-1">{item.name}</h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                <h4 className="font-display font-semibold text-lg mb-2">{item.name}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             </motion.div>
           ))}
