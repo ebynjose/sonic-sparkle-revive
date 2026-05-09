@@ -121,7 +121,7 @@ const FeaturesSection = () => {
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+              
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <span className="text-[10px] tracking-[0.2em] uppercase text-primary font-mono">
                   {String(active + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}

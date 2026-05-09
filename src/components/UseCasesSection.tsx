@@ -81,7 +81,7 @@ const UseCasesSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                  
                   <div className="absolute top-4 left-4">
                     <span className="text-xs font-mono text-primary/80 bg-background/40 backdrop-blur-sm px-3 py-1 rounded-full">
                       {c.num}
