@@ -49,8 +49,10 @@ const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
-                  isActive(l.href) ? "text-foreground" : "text-muted-foreground hover:text-primary"
+                className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:text-primary ${
+                  scrolled
+                    ? isActive(l.href) ? "text-foreground" : "text-muted-foreground"
+                    : isActive(l.href) ? "text-white" : "text-white/80"
                 }`}
               >
                 {l.label}
@@ -59,8 +61,10 @@ const Navbar = () => {
               <Link
                 key={l.href}
                 to={l.href}
-                className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
-                  isActive(l.href) ? "text-foreground" : "text-muted-foreground hover:text-primary"
+                className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:text-primary ${
+                  scrolled
+                    ? isActive(l.href) ? "text-foreground" : "text-muted-foreground"
+                    : isActive(l.href) ? "text-white" : "text-white/80"
                 }`}
               >
                 {l.label}
@@ -72,7 +76,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full text-muted-foreground hover:text-primary transition-colors duration-300"
+            className={`p-2 rounded-full hover:text-primary transition-colors duration-300 ${scrolled ? "text-muted-foreground" : "text-white/80"}`}
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -80,7 +84,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setQuoteOpen(true)}
-            className="text-xs tracking-[0.15em] uppercase text-primary border border-primary/30 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            className="text-xs tracking-[0.15em] uppercase text-primary border border-primary/40 rounded-full px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
             Get a Quote
           </button>
