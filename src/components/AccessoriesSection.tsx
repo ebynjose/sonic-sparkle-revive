@@ -17,7 +17,7 @@ const AccessoriesSection = () => {
   const imgY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section id="accessories" className="py-32 relative z-0" ref={sectionRef}>
+    <section id="accessories" className="py-16 md:py-20 relative z-0" ref={sectionRef}>
       {/* Full-width image banner */}
       <div className="container mx-auto mb-20">
         <div className="relative rounded-2xl overflow-hidden aspect-[21/9]">

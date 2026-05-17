@@ -36,7 +36,7 @@ const UseCasesSection = () => {
   const parallax2 = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section id="industries" className="py-32" ref={ref}>
+    <section id="industries" className="py-16 md:py-20" ref={ref}>
       <div className="container mx-auto">
         <motion.p
           initial={{ opacity: 0 }}

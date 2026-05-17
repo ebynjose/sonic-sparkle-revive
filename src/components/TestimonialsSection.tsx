@@ -44,7 +44,7 @@ const TestimonialsSection = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-32">
+    <section className="py-16 md:py-20">
       <div className="container mx-auto">
         <motion.p
           initial={{ opacity: 0 }}

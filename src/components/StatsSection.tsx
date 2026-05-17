@@ -50,7 +50,7 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
 
 const StatsSection = () => {
   return (
-    <section className="py-20 border-y border-border">
+    <section className="py-12 md:py-16 border-y border-border">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {stats.map((s, i) => (

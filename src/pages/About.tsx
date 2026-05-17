@@ -69,7 +69,7 @@ const About = () => {
       </section>
 
       {/* Image mosaic + story */}
-      <section ref={mosaicRef} className="py-32 border-t border-border">
+      <section ref={mosaicRef} className="py-16 md:py-20 border-t border-border">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
             {/* Mosaic */}

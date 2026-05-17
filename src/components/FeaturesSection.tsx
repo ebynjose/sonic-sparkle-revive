@@ -52,7 +52,7 @@ const FeaturesSection = () => {
   const imgParallax = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section id="features" className="py-32" ref={sectionRef}>
+    <section id="features" className="py-16 md:py-20" ref={sectionRef}>
       <div className="container mx-auto">
         <motion.p
           initial={{ opacity: 0 }}

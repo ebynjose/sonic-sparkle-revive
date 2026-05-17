@@ -11,7 +11,7 @@ const brands = [
 
 const TrustedBrandsSection = () => {
   return (
-    <section className="py-24 border-y border-border overflow-hidden">
+    <section className="py-14 md:py-16 border-y border-border overflow-hidden">
       <div className="container mx-auto mb-12">
         <motion.p
           initial={{ opacity: 0 }}
