@@ -33,7 +33,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-5xl sm:text-7xl lg:text-[6rem] font-display font-800 leading-[0.95] tracking-tight max-w-4xl text-white"
+          className="text-5xl sm:text-7xl lg:text-[6rem] font-display font-800 leading-[0.95] tracking-tight max-w-4xl text-foreground"
         >
           The future of
           <br />
