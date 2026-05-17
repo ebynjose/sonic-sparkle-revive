@@ -64,9 +64,9 @@ const HeroSection = () => {
             { val: "40pt", sub: "Infra Touch" },
             { val: "<5ms", sub: "Response" },
           ].map((s) => (
-            <div key={s.sub} className="border-l border-white/30 pl-4">
-              <div className="text-2xl font-display font-bold text-white">{s.val}</div>
-              <div className="text-[10px] tracking-[0.2em] uppercase text-white/70 mt-1 font-mono">{s.sub}</div>
+            <div key={s.sub} className="border-l border-foreground/30 pl-4">
+              <div className="text-2xl font-display font-bold text-foreground">{s.val}</div>
+              <div className="text-[10px] tracking-[0.2em] uppercase text-foreground/70 mt-1 font-mono">{s.sub}</div>
             </div>
           ))}
         </motion.div>
