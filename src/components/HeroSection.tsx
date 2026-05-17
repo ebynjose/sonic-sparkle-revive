@@ -33,7 +33,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-5xl sm:text-7xl lg:text-[6rem] font-display font-800 leading-[0.95] tracking-tight max-w-4xl text-white"
+          className="text-5xl sm:text-7xl lg:text-[6rem] font-display font-800 leading-[0.95] tracking-tight max-w-4xl text-foreground"
         >
           The future of
           <br />
@@ -46,7 +46,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="mt-8 text-base sm:text-lg text-white/80 max-w-md leading-relaxed font-light"
+          className="mt-8 text-base sm:text-lg text-foreground/75 max-w-md leading-relaxed font-light"
         >
           4K display. AI-powered. Multi-touch precision.
           <br />
@@ -64,9 +64,9 @@ const HeroSection = () => {
             { val: "40pt", sub: "Infra Touch" },
             { val: "<5ms", sub: "Response" },
           ].map((s) => (
-            <div key={s.sub} className="border-l border-white/30 pl-4">
-              <div className="text-2xl font-display font-bold text-white">{s.val}</div>
-              <div className="text-[10px] tracking-[0.2em] uppercase text-white/70 mt-1 font-mono">{s.sub}</div>
+            <div key={s.sub} className="border-l border-foreground/30 pl-4">
+              <div className="text-2xl font-display font-bold text-foreground">{s.val}</div>
+              <div className="text-[10px] tracking-[0.2em] uppercase text-foreground/70 mt-1 font-mono">{s.sub}</div>
             </div>
           ))}
         </motion.div>
