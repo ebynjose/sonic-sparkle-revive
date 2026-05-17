@@ -40,7 +40,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-5">
         <Link to="/" className="flex items-center">
-          <img src="/logo-sonichive.png" alt="SonicHive Interactive Logo" className="h-10 sm:h-12 md:h-14 w-auto object-contain brightness-0 invert" />
+          <img src="/logo-sonichive.png" alt="SonicHive Interactive Logo" className={`h-10 sm:h-12 md:h-14 w-auto object-contain brightness-0 transition-all duration-300 ${scrolled ? "dark:invert" : "invert"}`} />
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
