@@ -20,6 +20,7 @@ const Index = () => {
       <HeroSection />
       <TrustedBrandsSection />
       <Suspense fallback={<div className="min-h-[50vh]" />}>
+        <ProductsSection />
         <FeaturesSection />
         <AccessoriesSection />
         <StatsSection />
