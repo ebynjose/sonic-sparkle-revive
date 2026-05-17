@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 
+const ProductsSection = lazy(() => import("@/components/ProductsSection"));
 const FeaturesSection = lazy(() => import("@/components/FeaturesSection"));
 const AccessoriesSection = lazy(() => import("@/components/AccessoriesSection"));
 const UseCasesSection = lazy(() => import("@/components/UseCasesSection"));
