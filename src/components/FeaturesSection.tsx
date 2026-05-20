@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Fingerprint, Wifi, BrainCircuit, ArrowRight } from "lucide-react";
+import { Fingerprint, Wifi, BrainCircuit, Mic, Monitor } from "lucide-react";
 import lifestyleBoardroom from "@/assets/lifestyle-boardroom.jpg";
 import detailTouch from "@/assets/detail-touch.jpg";
 import lifestyleOffice from "@/assets/lifestyle-office.jpg";
@@ -34,157 +34,249 @@ const FeaturesSection = () => {
             className="max-w-xs"
           >
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Next-generation interactive displays built to eliminate barriers between your ideas and your team.
+              Hover any card to explore the detail. Next-generation interactive displays built to eliminate barriers between your ideas and your team.
             </p>
           </motion.div>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-fr">
+        {/* Bento Grid with 3D flip cards */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-fr [perspective:1500px]">
           {/* Primary: 4K Ultra HD */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="group relative md:col-span-8 md:row-span-2 overflow-hidden rounded-3xl bg-zinc-900 flex flex-col justify-end p-8 md:p-10 min-h-[400px] transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
-          >
-            <div className="absolute inset-0 opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
-              <img
-                src={lifestyleBoardroom}
-                alt="4K Ultra HD smart board in boardroom"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
-            <div className="relative">
-              <div className="inline-flex items-center mb-4">
-                <span className="text-xs border border-primary/50 px-3 py-1 rounded-full text-primary bg-primary/10 backdrop-blur-md font-medium tracking-wider">
-                  01 — PRIMARY
-                </span>
+          <FlipCard
+            className="md:col-span-8 md:row-span-2 min-h-[400px]"
+            front={
+              <div className="relative w-full h-full overflow-hidden rounded-3xl bg-zinc-900 flex flex-col justify-end p-8 md:p-10">
+                <div className="absolute inset-0 opacity-60">
+                  <img src={lifestyleBoardroom} alt="4K Ultra HD smart board in boardroom" className="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+                <div className="relative">
+                  <span className="text-xs border border-primary/50 px-3 py-1 rounded-full text-primary bg-primary/10 backdrop-blur-md font-medium tracking-wider">
+                    01 — PRIMARY
+                  </span>
+                  <h3 className="mt-4 text-4xl md:text-5xl font-display font-bold text-white mb-3">
+                    4K Ultra HD
+                  </h3>
+                  <p className="text-zinc-200 max-w-md text-sm md:text-base leading-relaxed">
+                    See the Difference in Every Pixel. Crystal-clear resolution for immersive presentations.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-3">
-                4K Ultra HD
-              </h3>
-              <p className="text-zinc-200 max-w-md text-sm md:text-base leading-relaxed">
-                See the Difference in Every Pixel. Crystal-clear resolution for immersive presentations.
-              </p>
-            </div>
-          </motion.div>
+            }
+            back={
+              <div className="w-full h-full rounded-3xl bg-zinc-950 text-white p-8 md:p-10 flex flex-col justify-between">
+                <div>
+                  <Monitor className="w-10 h-10 text-primary mb-4" />
+                  <h3 className="text-3xl md:text-4xl font-display font-bold mb-4">Pixel-perfect clarity</h3>
+                  <p className="text-zinc-300 leading-relaxed max-w-lg">
+                    3840×2160 native resolution with anti-glare nano-etched glass. Render fine typography, CAD drawings, and 4K video without artifacts — even from the front row.
+                  </p>
+                </div>
+                <ul className="grid grid-cols-2 gap-3 text-sm">
+                  <Stat label="Resolution" value="3840 × 2160" />
+                  <Stat label="Brightness" value="450 cd/m²" />
+                  <Stat label="Contrast" value="5000 : 1" />
+                  <Stat label="Color Gamut" value="72% NTSC" />
+                </ul>
+              </div>
+            }
+          />
 
           {/* Multi-Touch */}
-          <FeatureCard
-            number="02"
-            title="Multi-Touch"
-            description="Touch, Write & Control."
-            icon={<Fingerprint className="w-5 h-5" />}
-            image={detailTouch}
-            className="md:col-span-4"
+          <FlipCard
+            className="md:col-span-4 min-h-[200px]"
+            front={
+              <CardFront number="02" title="Multi-Touch" description="Touch, Write & Control." icon={<Fingerprint className="w-5 h-5" />} />
+            }
+            back={
+              <CardBack
+                icon={<Fingerprint className="w-8 h-8" />}
+                title="40-point touch"
+                body="Up to 40 simultaneous touch points with <1ms latency. Write with finger or stylus, palm rejection on by default."
+                bullets={["Zero-lag inking", "Palm rejection", "Stylus + finger"]}
+              />
+            }
           />
 
-          {/* Wireless — primary filled */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="group relative md:col-span-4 overflow-hidden rounded-3xl bg-primary p-8 text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 flex flex-col"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500">
-              <img src={lifestyleOffice} alt="" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative flex justify-between items-start mb-12">
-              <span className="text-primary-foreground/70 text-xs font-medium">03</span>
-              <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-md flex items-center justify-center">
-                <Wifi className="w-5 h-5" />
+          {/* Wireless */}
+          <FlipCard
+            className="md:col-span-4 min-h-[200px]"
+            front={
+              <div className="relative w-full h-full overflow-hidden rounded-3xl bg-primary p-8 text-primary-foreground flex flex-col">
+                <div className="relative flex justify-between items-start mb-12">
+                  <span className="text-primary-foreground/70 text-xs font-medium">03</span>
+                  <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-md flex items-center justify-center">
+                    <Wifi className="w-5 h-5" />
+                  </div>
+                </div>
+                <div className="relative mt-auto">
+                  <h4 className="text-2xl font-display font-bold mb-2">Wireless</h4>
+                  <p className="text-primary-foreground/80 text-sm">No Cables. No Limits.</p>
+                </div>
               </div>
-            </div>
-            <div className="relative mt-auto">
-              <h4 className="text-2xl font-display font-bold mb-2">Wireless</h4>
-              <p className="text-primary-foreground/80 text-sm">No Cables. No Limits.</p>
-            </div>
-          </motion.div>
+            }
+            back={
+              <div className="w-full h-full rounded-3xl bg-primary text-primary-foreground p-8 flex flex-col justify-between">
+                <div>
+                  <Wifi className="w-8 h-8 mb-4" />
+                  <h4 className="text-2xl font-display font-bold mb-3">Cast from anywhere</h4>
+                  <p className="text-primary-foreground/85 text-sm leading-relaxed">
+                    Mirror iOS, Android, Windows & macOS instantly over Wi-Fi 6. Up to 4 screens side-by-side, no dongles required.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  {["AirPlay", "Miracast", "Chromecast", "BYOD"].map((t) => (
+                    <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md">{t}</span>
+                  ))}
+                </div>
+              </div>
+            }
+          />
 
           {/* Audio & Webcam */}
-          <FeatureCard
-            number="04"
-            title="Audio & Webcam"
-            description="Hybrid Meetings, Perfected."
-            icon={<ArrowRight className="w-5 h-5" />}
-            image={lifestyleMeeting}
-            className="md:col-span-4"
-            variant="soft"
+          <FlipCard
+            className="md:col-span-4 min-h-[200px]"
+            front={
+              <CardFront number="04" title="Audio & Webcam" description="Hybrid Meetings, Perfected." icon={<Mic className="w-5 h-5" />} variant="soft" />
+            }
+            back={
+              <CardBack
+                icon={<Mic className="w-8 h-8" />}
+                title="Studio-grade A/V"
+                body="8-array beamforming mics with 8m pickup and a 4K AI webcam that auto-frames the speaker. Plug-and-play with Zoom, Teams & Meet."
+                bullets={["8m mic pickup", "4K AI camera", "Echo cancel"]}
+              />
+            }
           />
 
-          {/* AI-Powered — wide */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="group relative md:col-span-8 overflow-hidden rounded-3xl border-2 border-dashed border-border p-8 flex flex-col md:flex-row items-center gap-6 hover:border-primary/50 transition-all"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-25 transition-opacity duration-500">
-              <img src={lifestyleCreative} alt="" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative w-16 h-16 shrink-0 rounded-2xl bg-foreground flex items-center justify-center text-background rotate-3 group-hover:rotate-0 transition-transform">
-              <BrainCircuit className="w-8 h-8" />
-            </div>
-            <div className="relative flex-1 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                <span className="text-muted-foreground text-xs font-medium">05</span>
-                <h4 className="text-xl font-display font-bold">AI-Powered</h4>
+          {/* AI-Powered */}
+          <FlipCard
+            className="md:col-span-8 min-h-[180px]"
+            front={
+              <div className="relative w-full h-full overflow-hidden rounded-3xl border-2 border-dashed border-border p-8 flex flex-col md:flex-row items-center gap-6">
+                <div className="relative w-16 h-16 shrink-0 rounded-2xl bg-foreground flex items-center justify-center text-background rotate-3">
+                  <BrainCircuit className="w-8 h-8" />
+                </div>
+                <div className="relative flex-1 text-center md:text-left">
+                  <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+                    <span className="text-muted-foreground text-xs font-medium">05</span>
+                    <h4 className="text-xl font-display font-bold">AI-Powered</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Smart, Fast & Intuitive features that adapt to your work style automatically.
+                  </p>
+                </div>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Smart, Fast & Intuitive features that adapt to your work style automatically.
-              </p>
-            </div>
-          </motion.div>
+            }
+            back={
+              <div className="w-full h-full rounded-3xl bg-foreground text-background p-8 flex flex-col md:flex-row items-center gap-6">
+                <BrainCircuit className="w-12 h-12 shrink-0 text-primary" />
+                <div className="flex-1">
+                  <h4 className="text-2xl font-display font-bold mb-2">AI that does the busywork</h4>
+                  <p className="text-background/75 text-sm leading-relaxed mb-3">
+                    Live transcription, instant meeting summaries, handwriting-to-text, and shape recognition — built in, no subscription.
+                  </p>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    {["Transcribe", "Summarize", "OCR", "Shape AI"].map((t) => (
+                      <span key={t} className="px-2.5 py-1 rounded-full bg-background/10">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            }
+          />
         </div>
       </div>
     </section>
   );
 };
 
-interface FeatureCardProps {
-  number: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  image: string;
+/* ---------- helpers ---------- */
+
+interface FlipCardProps {
+  front: React.ReactNode;
+  back: React.ReactNode;
   className?: string;
-  variant?: "default" | "soft";
 }
 
-const FeatureCard = ({ number, title, description, icon, image, className = "", variant = "default" }: FeatureCardProps) => (
+const FlipCard = ({ front, back, className = "" }: FlipCardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    transition={{ delay: 0.05 }}
-    className={`group relative overflow-hidden rounded-3xl border border-border p-8 transition-all duration-300 hover:border-primary/40 flex flex-col ${
-      variant === "soft" ? "bg-secondary/50" : "bg-card/60"
-    } backdrop-blur-xl ${className}`}
+    transition={{ duration: 0.5 }}
+    className={`group relative [transform-style:preserve-3d] ${className}`}
   >
-    {/* Hover background image */}
-    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-      <img src={image} alt="" className="w-full h-full object-cover" loading="lazy" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/50" />
+    <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      <div className="absolute inset-0 [backface-visibility:hidden]">{front}</div>
+      <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">{back}</div>
     </div>
+  </motion.div>
+);
 
-    <div className="relative flex justify-between items-start mb-12">
+const CardFront = ({
+  number,
+  title,
+  description,
+  icon,
+  variant = "default",
+}: {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  variant?: "default" | "soft";
+}) => (
+  <div
+    className={`w-full h-full overflow-hidden rounded-3xl border border-border p-8 flex flex-col backdrop-blur-xl ${
+      variant === "soft" ? "bg-secondary/50" : "bg-card/60"
+    }`}
+  >
+    <div className="flex justify-between items-start mb-12">
       <span className="text-muted-foreground text-xs font-medium">{number}</span>
-      <div className="w-10 h-10 rounded-xl bg-secondary/60 backdrop-blur-md border border-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
+      <div className="w-10 h-10 rounded-xl bg-secondary/60 backdrop-blur-md border border-border flex items-center justify-center text-primary">
         {icon}
       </div>
     </div>
-    <div className="relative mt-auto">
+    <div className="mt-auto">
       <h4 className="text-2xl font-display font-bold mb-2">{title}</h4>
       <p className="text-muted-foreground text-sm">{description}</p>
     </div>
-  </motion.div>
+  </div>
+);
+
+const CardBack = ({
+  icon,
+  title,
+  body,
+  bullets,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+  bullets: string[];
+}) => (
+  <div className="w-full h-full rounded-3xl bg-primary text-primary-foreground p-8 flex flex-col justify-between">
+    <div>
+      <div className="mb-4">{icon}</div>
+      <h4 className="text-2xl font-display font-bold mb-2">{title}</h4>
+      <p className="text-primary-foreground/85 text-sm leading-relaxed">{body}</p>
+    </div>
+    <ul className="flex flex-wrap gap-2 text-xs mt-4">
+      {bullets.map((b) => (
+        <li key={b} className="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md">
+          {b}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+const Stat = ({ label, value }: { label: string; value: string }) => (
+  <li className="rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+    <div className="text-zinc-400 text-[10px] uppercase tracking-widest">{label}</div>
+    <div className="text-white font-medium">{value}</div>
+  </li>
 );
 
 export default FeaturesSection;
