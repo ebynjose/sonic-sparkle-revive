@@ -8,8 +8,12 @@ import productTvSidePorts from "@/assets/product-tv-side-ports.webp";
 import productTvSide from "@/assets/product-tv-side.webp";
 import productTvTop from "@/assets/product-tv-top.webp";
 import productTouchpen from "@/assets/product-touchpen.png";
+import refeeTabletopMain from "@/assets/refee-tabletop-main.jpg";
+import refeeTabletopHero from "@/assets/refee-tabletop-hero.jpg";
+import refeeTabletopHospital from "@/assets/refee-tabletop-hospital.jpg";
+import refeeTabletopHotel from "@/assets/refee-tabletop-hotel.jpg";
 
-export type ProductCategory = "smart-board" | "accessory";
+export type ProductCategory = "smart-board" | "accessory" | "tabletop-display";
 
 export interface Product {
   id: string;
