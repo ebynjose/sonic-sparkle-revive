@@ -116,23 +116,25 @@ const ProductDetail = () => {
                 {product.description}
               </p>
 
-              {/* Specs */}
-              <div className="mb-10">
-                <h3 className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-mono mb-4">
-                  Specifications
-                </h3>
-                <div className="space-y-0">
-                  {product.specs.map((spec) => (
-                    <div
-                      key={spec.label}
-                      className="flex items-start justify-between gap-4 py-3 border-b border-border"
-                    >
-                      <span className="text-sm text-muted-foreground shrink-0">{spec.label}</span>
-                      <span className="text-sm font-medium text-right break-words min-w-0">{spec.value}</span>
-                    </div>
-                  ))}
+              {/* Specs - inline for non-tabletop */}
+              {product.category !== "tabletop-display" && (
+                <div className="mb-10">
+                  <h3 className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-mono mb-4">
+                    Specifications
+                  </h3>
+                  <div className="space-y-0">
+                    {product.specs.map((spec) => (
+                      <div
+                        key={spec.label}
+                        className="flex items-start justify-between gap-4 py-3 border-b border-border"
+                      >
+                        <span className="text-sm text-muted-foreground shrink-0">{spec.label}</span>
+                        <span className="text-sm font-medium text-right break-words min-w-0">{spec.value}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <Button size="lg" className="gap-2" onClick={() => setQuoteOpen(true)}>
                 Get a Quote <ArrowRight size={16} />
@@ -140,6 +142,32 @@ const ProductDetail = () => {
               <QuoteFormDialog open={quoteOpen} onOpenChange={setQuoteOpen} />
             </motion.div>
           </div>
+
+          {/* Specs - 2 column grid below image section for tabletop display */}
+          {product.category === "tabletop-display" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-12 sm:mt-20"
+            >
+              <h3 className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-mono mb-6">
+                Specifications
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-x-10 gap-y-0">
+                {product.specs.map((spec) => (
+                  <div
+                    key={spec.label}
+                    className="flex items-start justify-between gap-4 py-3 border-b border-border"
+                  >
+                    <span className="text-sm text-muted-foreground shrink-0">{spec.label}</span>
+                    <span className="text-sm font-medium text-right break-words min-w-0">{spec.value}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
         </div>
       </section>
 
