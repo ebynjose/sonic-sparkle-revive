@@ -9,8 +9,15 @@ import { products, type ProductCategory } from "@/data/products";
 const filters: { label: string; value: "all" | ProductCategory }[] = [
   { label: "All Products", value: "all" },
   { label: "Smart Boards", value: "smart-board" },
+  { label: "Tabletop Displays", value: "tabletop-display" },
   { label: "Accessories", value: "accessory" },
 ];
+
+const categoryLabel: Record<ProductCategory, string> = {
+  "smart-board": "Smart Board",
+  "tabletop-display": "Tabletop Display",
+  accessory: "Accessory",
+};
 
 const Products = () => {
   const [activeFilter, setActiveFilter] = useState<"all" | ProductCategory>("all");
@@ -102,7 +109,7 @@ const Products = () => {
                   {/* Info */}
                   <div className="p-6">
                     <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono">
-                      {product.category === "smart-board" ? "Smart Board" : "Accessory"}
+                      {categoryLabel[product.category]}
                     </span>
                     <h3 className="text-lg font-display font-bold mt-1 mb-1">{product.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4">{product.tagline}</p>

@@ -102,7 +102,11 @@ const ProductDetail = () => {
               className="w-full min-w-0"
             >
               <span className="text-[10px] tracking-[0.25em] uppercase text-primary font-mono">
-                {product.category === "smart-board" ? "Smart Board" : "Accessory"}
+                {product.category === "smart-board"
+                  ? "Smart Board"
+                  : product.category === "tabletop-display"
+                  ? "Tabletop Display"
+                  : "Accessory"}
               </span>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight mt-2 mb-2 sm:mb-3">
                 {product.name}

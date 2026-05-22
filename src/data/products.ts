@@ -8,8 +8,12 @@ import productTvSidePorts from "@/assets/product-tv-side-ports.webp";
 import productTvSide from "@/assets/product-tv-side.webp";
 import productTvTop from "@/assets/product-tv-top.webp";
 import productTouchpen from "@/assets/product-touchpen.png";
+import refeeTabletopMain from "@/assets/refee-tabletop-main.jpg";
+import refeeTabletopHero from "@/assets/refee-tabletop-hero.jpg";
+import refeeTabletopHospital from "@/assets/refee-tabletop-hospital.jpg";
+import refeeTabletopHotel from "@/assets/refee-tabletop-hotel.jpg";
 
-export type ProductCategory = "smart-board" | "accessory";
+export type ProductCategory = "smart-board" | "accessory" | "tabletop-display";
 
 export interface Product {
   id: string;
@@ -151,6 +155,33 @@ export const products: Product[] = [
       { label: "Attachment", value: "Magnetic" },
       { label: "Pressure", value: "4096 levels" },
       { label: "Battery", value: "Passive (no charge)" },
+    ],
+  },
+  {
+    id: "tabletop-touch-display-13",
+    name: 'Table-Top Touch Display 13.3"',
+    category: "tabletop-display",
+    tagline: "L-typed counter display for reception, retail and hospitality",
+    description:
+      'A compact 13.3" L-typed tabletop touch display engineered for counters, reception desks and digital menus. Full HD IPS panel with 10-point PCAP multi-touch, alloy housing for a stable tilted stand, built-in Android OS with media player, and optional front camera for customer-facing interactions. Plug-and-play via USB or manage content remotely through the optional CMS cloud.',
+    image: refeeTabletopMain,
+    images: [refeeTabletopMain, refeeTabletopHero, refeeTabletopHotel, refeeTabletopHospital],
+    specs: [
+      { label: "Display", value: '13.3" Full HD IPS (1920×1080)' },
+      { label: "Touch", value: "10-point PCAP capacitive" },
+      { label: "Brightness", value: "250 nits" },
+      { label: "Contrast Ratio", value: "1200:1" },
+      { label: "Viewing Angle", value: "89°/89°/89°/89°" },
+      { label: "OS", value: "Android" },
+      { label: "RAM / Storage", value: "2GB / 16GB" },
+      { label: "Connectivity", value: "Wi-Fi 802.11b/g/n, RJ45 100M/1000M" },
+      { label: "I/O Ports", value: "HDMI, USB 2.0 ×2, RJ45, Earphone" },
+      { label: "Speakers", value: "2 × 3W" },
+      { label: "Camera", value: "Optional front camera" },
+      { label: "Housing", value: "Alloy metal case (black)" },
+      { label: "Power", value: "AC 100–240V, 10W" },
+      { label: "Certifications", value: "CE, FCC, RoHS" },
+      { label: "Warranty", value: "1 Year (Extended options available)" },
     ],
   },
 ];
