@@ -116,17 +116,17 @@ const FeaturesSection = () => {
               </div>
             }
             back={
-              <div className="w-full h-full rounded-3xl bg-primary text-primary-foreground p-8 flex flex-col justify-between">
+              <div className="w-full h-full rounded-3xl bg-primary text-primary-foreground p-6 flex flex-col justify-between overflow-hidden">
                 <div>
-                  <Wifi className="w-8 h-8 mb-4" />
-                  <h4 className="text-2xl font-display font-bold mb-3">Cast from anywhere</h4>
-                  <p className="text-primary-foreground/85 text-sm leading-relaxed">
+                  <Wifi className="w-7 h-7 mb-3" />
+                  <h4 className="text-xl font-display font-bold mb-1.5">Cast from anywhere</h4>
+                  <p className="text-primary-foreground/85 text-xs leading-relaxed">
                     Mirror iOS, Android, Windows & macOS instantly over Wi-Fi 6. Up to 4 screens side-by-side, no dongles required.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-2 text-xs">
+                <div className="flex flex-wrap gap-1.5 text-[10px]">
                   {["AirPlay", "Miracast", "Chromecast", "BYOD"].map((t) => (
-                    <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md">{t}</span>
+                    <span key={t} className="px-2 py-0.5 rounded-full bg-white/15 backdrop-blur-md">{t}</span>
                   ))}
                 </div>
               </div>
@@ -256,15 +256,15 @@ const CardBack = ({
   body: string;
   bullets: string[];
 }) => (
-  <div className="w-full h-full rounded-3xl bg-primary text-primary-foreground p-8 flex flex-col justify-between">
+  <div className="w-full h-full rounded-3xl bg-primary text-primary-foreground p-6 flex flex-col justify-between overflow-hidden">
     <div>
-      <div className="mb-4">{icon}</div>
-      <h4 className="text-2xl font-display font-bold mb-2">{title}</h4>
-      <p className="text-primary-foreground/85 text-sm leading-relaxed">{body}</p>
+      <div className="mb-3">{icon}</div>
+      <h4 className="text-xl font-display font-bold mb-1.5">{title}</h4>
+      <p className="text-primary-foreground/85 text-xs leading-relaxed">{body}</p>
     </div>
-    <ul className="flex flex-wrap gap-2 text-xs mt-4">
+    <ul className="flex flex-wrap gap-1.5 text-[10px] mt-3">
       {bullets.map((b) => (
-        <li key={b} className="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md">
+        <li key={b} className="px-2 py-0.5 rounded-full bg-white/15 backdrop-blur-md">
           {b}
         </li>
       ))}
