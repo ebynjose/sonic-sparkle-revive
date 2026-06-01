@@ -43,7 +43,7 @@ const FeaturesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-fr [perspective:1500px]">
           {/* Primary: 4K Ultra HD */}
           <FlipCard
-            className="md:col-span-8 md:row-span-2 min-h-[400px]"
+            className="md:col-span-8 md:row-span-2 min-h-[460px]"
             front={
               <div className="relative w-full h-full overflow-hidden rounded-3xl bg-zinc-900 flex flex-col justify-end p-8 md:p-10">
                 <div className="absolute inset-0 opacity-60">
@@ -84,7 +84,7 @@ const FeaturesSection = () => {
 
           {/* Multi-Touch */}
           <FlipCard
-            className="md:col-span-4 min-h-[200px]"
+            className="md:col-span-4 min-h-[230px]"
             front={
               <CardFront number="02" title="Multi-Touch" description="Touch, Write & Control." icon={<Fingerprint className="w-5 h-5" />} />
             }
@@ -100,7 +100,7 @@ const FeaturesSection = () => {
 
           {/* Wireless */}
           <FlipCard
-            className="md:col-span-4 min-h-[200px]"
+            className="md:col-span-4 min-h-[230px]"
             front={
               <div className="relative w-full h-full overflow-hidden rounded-3xl bg-primary p-8 text-primary-foreground flex flex-col">
                 <div className="relative flex justify-between items-start mb-12">
@@ -135,7 +135,7 @@ const FeaturesSection = () => {
 
           {/* Audio & Webcam */}
           <FlipCard
-            className="md:col-span-4 min-h-[200px]"
+            className="md:col-span-4 min-h-[230px]"
             front={
               <CardFront number="04" title="Audio & Webcam" description="Hybrid Meetings, Perfected." icon={<Mic className="w-5 h-5" />} variant="soft" />
             }
@@ -151,7 +151,7 @@ const FeaturesSection = () => {
 
           {/* AI-Powered */}
           <FlipCard
-            className="md:col-span-8 min-h-[180px]"
+            className="md:col-span-8 min-h-[230px]"
             front={
               <div className="relative w-full h-full overflow-hidden rounded-3xl border-2 border-dashed border-border p-8 flex flex-col md:flex-row items-center gap-6">
                 <div className="relative w-16 h-16 shrink-0 rounded-2xl bg-foreground flex items-center justify-center text-background rotate-3">
