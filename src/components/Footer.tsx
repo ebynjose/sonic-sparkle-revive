@@ -129,14 +129,28 @@ const Footer = () => {
               © {new Date().getFullYear()} SonicHive. All rights reserved.
             </p>
             <div className="flex gap-8">
-              {["Privacy Policy", "Terms of Service", "Cookie Settings"].map((item) => (
-                <a 
-                  key={item}
-                  href="#" 
-                  className="text-xs text-muted-foreground hover:text-primary transition-colors font-mono"
-                >
-                  {item}
-                </a>
+              {[
+                { label: "Privacy Policy", href: "/privacy-policy", isRoute: true },
+                { label: "Terms of Service", href: "#", isRoute: false },
+                { label: "Cookie Settings", href: "#", isRoute: false },
+              ].map((item) => (
+                item.isRoute ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors font-mono"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors font-mono"
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
             </div>
           </div>
