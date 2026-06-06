@@ -121,6 +121,7 @@ const QuoteFormDialog = ({ open, onOpenChange }: QuoteFormDialogProps) => {
               </Button>
             </form>
           </motion.div>
+          </div>
         </div>
       )}
     </AnimatePresence>
