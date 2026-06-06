@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, MessageCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -37,7 +38,7 @@ const QuoteFormDialog = ({ open, onOpenChange }: QuoteFormDialogProps) => {
     }
   };
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {open && (
         <div className="fixed inset-0 z-[100] overflow-y-auto overscroll-contain">
@@ -124,7 +125,8 @@ const QuoteFormDialog = ({ open, onOpenChange }: QuoteFormDialogProps) => {
           </div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
