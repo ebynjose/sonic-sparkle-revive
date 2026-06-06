@@ -40,23 +40,24 @@ const QuoteFormDialog = ({ open, onOpenChange }: QuoteFormDialogProps) => {
   return (
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center">
+        <div className="fixed inset-0 z-[100] overflow-y-auto overscroll-contain">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => onOpenChange(false)}
           />
 
+          <div className="relative min-h-full flex items-start sm:items-center justify-center p-4 sm:p-6">
           {/* Dialog */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative w-[95vw] max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-border bg-card p-7 sm:p-9 shadow-2xl"
+            className="relative w-full max-w-lg my-4 rounded-2xl border border-border bg-card p-6 sm:p-9 shadow-2xl"
           >
             {/* Close button */}
             <button
@@ -120,6 +121,7 @@ const QuoteFormDialog = ({ open, onOpenChange }: QuoteFormDialogProps) => {
               </Button>
             </form>
           </motion.div>
+          </div>
         </div>
       )}
     </AnimatePresence>
