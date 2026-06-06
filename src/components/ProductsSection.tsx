@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 import { products } from "@/data/products";
 
 const ProductsSection = () => {
-  const smartBoards = products.filter((p) => p.category === "smart-board");
+  const displayProducts = products.filter(
+    (p) => p.category === "smart-board" || p.category === "tabletop-display"
+  );
+
+  const badgeText = (category: string) => {
+    if (category === "tabletop-display") return "Full HD Touch";
+    return "4K Ultra HD";
+  };
 
   return (
     <section id="products" className="py-16 md:py-20">
@@ -39,7 +46,7 @@ const ProductsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {smartBoards.map((p, i) => (
+          {displayProducts.map((p, i) => (
             <motion.div
               key={p.id}
               initial={{ opacity: 0, y: 30 }}
@@ -61,7 +68,7 @@ const ProductsSection = () => {
                 </div>
                 <div className="p-6">
                   <p className="text-[10px] tracking-[0.25em] uppercase text-primary font-mono mb-2">
-                    4K Ultra HD
+                    {badgeText(p.category)}
                   </p>
                   <h3 className="font-display font-bold text-xl mb-2">{p.name}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5 line-clamp-2">
