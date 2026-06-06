@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, MessageCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
